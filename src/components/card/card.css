@@ -1,0 +1,55 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+#cardMain{
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    width: 18.5vw;
+    height: 250px;
+    align-items: center;
+    gap: 8px;
+    border-radius: 10px;
+}
+
+.doctorImage{
+    width: 100px;
+    height: 100px;
+    margin-top: 10px;
+}
+
+.about{
+    display: flex;
+}
+
+.value{
+    margin-left: 3px;
+}
+
+@media (max-Width: 770px){
+    #cardMain{
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    width: 27vw;
+    height: 250px;
+    align-items: center;
+    gap: 8px;
+    border-radius: 10px;
+}
+}
+
+@media (max-Width: 430px){
+    #cardMain{
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    width: 40vw;
+    height: 250px;
+    align-items: center;
+    gap: 8px;
+    border-radius: 10px;
+}
+}

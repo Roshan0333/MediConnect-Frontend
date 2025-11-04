@@ -1,0 +1,115 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+}
+
+#mainDiv {
+    display: flex;
+    flex-direction: column;
+}
+
+#search {
+    display: flex;
+    align-items: center;
+    height: 30px;
+    background-color: white;
+    width: 57vw;
+    padding: 10px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+#searchInput {
+    background-color: white;
+    width: 95%;
+    height: 20px;
+    padding: 10px;
+    outline: none;
+    border: none;
+}
+
+#searchIcon {
+    font-size: 25px;
+    font-weight: 100;
+}
+
+
+#option {
+    height: 55px;
+    width: 58vw;
+    margin-top: 15px;
+    padding: 5px;
+    display: flex;
+    justify-content: space-between;
+}
+
+#option select {
+    background-color: white;
+    border: 1px rgb(206, 40, 40) solid;
+    padding: 10px;
+    border-radius: 5px;
+    width: 30%;
+    color: rgb(206, 40, 40);
+    font-size: 16px;
+}
+
+.pickerBox{
+    background-color: #fff;
+    width: 30%;
+}
+
+
+input[type] {
+    color-scheme: white;
+}
+
+#cardDiv {
+    height: 71vh;
+    width: 100%;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    row-gap: 18px;
+    margin-top: 20px;
+    overflow-y: scroll;
+}
+
+#cardDiv::-webkit-scrollbar {
+    display: none;
+}
+
+@media (max-Width: 770px) {
+
+    #search {
+        width: 87vw;
+    }
+
+    #option {
+        width: 89vw;
+    }
+
+    #cardDiv {
+        height: 70vh;
+        width: 100%;
+        display: grid;
+        grid-template-columns: auto auto auto;
+        row-gap: 18px;
+        margin-top: 30px;
+        overflow-y: scroll;
+    }
+}
+
+
+@media (max-Width: 430px) {
+
+    #cardDiv {
+        height: 70vh;
+        width: 100%;
+        display: grid;
+        grid-template-columns: auto auto;
+        row-gap: 18px;
+        margin-top: 30px;
+        overflow-y: scroll;
+    }
+}

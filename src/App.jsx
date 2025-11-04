@@ -1,0 +1,62 @@
+import './App.css'
+import Navbar from './components/navbar/navbar'
+import SideBar from './components/sidebar/sidebar'
+import MainComponent from './components/mainComponent//mainComponent';
+import AppointmentHistoryComponent from './components/HistoryComponent/AppointmentHistory';
+import SignUp from './components/signup/combine/signup'
+import Login from './components/login/combine/login';
+import ForgetPasswordCombine from './components/forgetPassword/combine';
+import OTP from './components/OTP/otp';
+import AppointmentBooking from "./components/doctorAvailable/doctorAvailable"
+import AppointmentBookingConformation from "./components/AppointmentBooking/Booking"
+
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import PreviousDoctors from './components/PreviousDoctor/previousDoctor';
+
+
+function App() {
+
+
+  return (
+    <>
+      <Router>
+        <Routes>
+          <Route path='/Signup' element={<SignUp />} />
+          <Route path='/Login' element={<Login />} />
+          <Route path='/ForgetPassword' element={<ForgetPasswordCombine />} />
+          <Route path='/Otp' element={<OTP />} />
+          <Route path='/*' element={<Layout/>} />
+        </Routes>
+      </Router>
+    </>
+  )
+}
+
+function Layout() {
+
+  const location = useLocation();  // <-- get current location
+  const isAppointmentPage = location.pathname === '/AppointmentBooking';
+
+
+  return (
+    <>
+      <Navbar id="navbar" />
+      <div id='secondLayer' style={{ display: 'flex' }}>
+        {(!isAppointmentPage) ? <div id='sidebar'><SideBar id="sideBar" /></div> : null}
+        <div id='mainComponent' className={(!isAppointmentPage) ? "mainComponent" : "fullWidth_mainComponent"}>
+          <Routes>
+            <Route path='/' element={<MainComponent />} />
+            <Route path='/AppointmentBooking' element={<AppointmentBooking />} />
+            <Route path='/AppointmentBookingConformation' element={<AppointmentBookingConformation/>}/>
+            <Route path="/Appoinment" />
+            <Route path="/Doctor" element={<PreviousDoctors/>}/>
+            <Route path='/History' element={<AppointmentHistoryComponent/>} />
+            <Route path='/Setting' />
+          </Routes>
+        </div>
+      </div>
+    </>
+  )
+}
+
+export default App

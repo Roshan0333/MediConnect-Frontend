@@ -1,0 +1,128 @@
+body {
+    display: flex;
+    flex-direction: column;
+    background-color: #E6E4E4;
+}
+
+#mainDiv {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#navbar {
+    position: fixed;
+    top: 10px;
+
+}
+
+#secondLayer {
+    display: flex;
+    flex-direction: row;
+    height: 88vh;
+    width: 100vw;
+    position: fixed;
+    left: 10vw;
+    top: 85px;
+}
+
+#sidebar {
+    height: 88vh;
+    width: 20vw;
+    background-color: white;
+    border-radius: 10px;
+}
+
+
+.mainComponent {
+    margin-left: 20px;
+    width: 59vw;
+    height: 95vh;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.fullWidth_mainComponent {
+    width: 79vw;
+    height: 95vh;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.Signup {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    background: white;
+    /* Optional: give it clean background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+@media (max-width:1024px) {
+
+    #secondLayer {
+        display: flex;
+        flex-direction: row;
+        height: 85vh;
+        width: 100vw;
+        position: fixed;
+        left: 5vw;
+        top: 95px;
+    }
+
+    #sidebar {
+        height: 85vh;
+        width: 25vw;
+        background-color: white;
+        border-radius: 10px;
+    }
+
+    .mainComponent {
+        margin-left: 20px;
+        width: 63vw;
+        border-radius: 10px;
+        overflow: hidden;
+    }
+
+    .fullWidth_mainComponent {
+        width: 88vw;
+        height: 95vh;
+        border-radius: 10px;
+        overflow: hidden;
+    }
+
+
+}
+
+
+@media (max-width:770px) {
+
+
+    #secondLayer {
+        display: flex;
+        flex-direction: row;
+        height: 100vh;
+        width: 90vw;
+        align-items: center;
+        position: static;
+        margin-top: 95px;
+    }
+
+    #sidebar {
+        display: none;
+    }
+
+    #mainComponent {
+        position: fixed;
+        top: 95px;
+        width: 90vw;
+        height: 100vh;
+        margin-left: 0px;
+        border-radius: 10px;
+    }
+}

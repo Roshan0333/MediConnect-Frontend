@@ -1,0 +1,17 @@
+.MainDiv{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: space-between;
+}
+
+.RightPart{
+    width: 50vw;
+    height: 100vh;
+}
+
+.LeftPart{
+    width: 50vw;
+    height: 100vh;
+    background-color: white;
+}
