@@ -9,9 +9,10 @@ import ForgetPasswordCombine from './components/forgetPassword/combine';
 import OTP from './components/OTP/otp';
 import AppointmentBooking from "./components/doctorAvailable/doctorAvailable"
 import AppointmentBookingConformation from "./components/AppointmentBooking/Booking"
-
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import PreviousDoctors from './components/PreviousDoctor/previousDoctor';
+import MedicalReport from './components/MedicalReport/MedicalReport';
+import UpcomingAppointment from './components/upcomingAppointment/upcomingAppointment';
 
 
 function App() {
@@ -48,7 +49,8 @@ function Layout() {
             <Route path='/' element={<MainComponent />} />
             <Route path='/AppointmentBooking' element={<AppointmentBooking />} />
             <Route path='/AppointmentBookingConformation' element={<AppointmentBookingConformation/>}/>
-            <Route path="/Appoinment" />
+            <Route path="/Appoinment" element={<UpcomingAppointment/>}/>
+            <Route path='/Report' element = {<MedicalReport/>}/>
             <Route path="/Doctor" element={<PreviousDoctors/>}/>
             <Route path='/History' element={<AppointmentHistoryComponent/>} />
             <Route path='/Setting' />

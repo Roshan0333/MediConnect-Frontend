@@ -5,7 +5,7 @@ function AppointmentBooking() {
     let location = useLocation();
     let Navigate = useNavigate();
 
-    let { DoctorName, DoctorId, AppointmentDate, AppointmentTime, experience, specialization, date, fee } = location.state;
+    let { DoctorName, DoctorId,DoctorSpecialization, AppointmentDate, AppointmentTime, experience, specialization, date, fee } = location.state;
 
 
     let AppointmentBookingConformation = async () => {
@@ -19,6 +19,7 @@ function AppointmentBooking() {
                 body: JSON.stringify({
                     DoctorName,
                     DoctorId,
+                    DoctorSpecialization,
                     AppointmentDate,
                     AppointmentTime
                 }),
@@ -71,6 +72,11 @@ function AppointmentBooking() {
                 <div className={styles.inputDiv}>
                     <label className={styles.inputFieldLabel}>Doctor Name : </label>
                     <p className={styles.inputFieldValue}>{DoctorName}</p>
+                </div>
+
+                <div className={styles.inputDiv}>
+                    <label className={styles.inputFieldLabel}>Specialization : </label>
+                    <p className={styles.inputFieldValue}>{DoctorSpecialization}</p>
                 </div>
 
                 <div className={styles.inputDiv}>

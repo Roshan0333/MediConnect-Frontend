@@ -67,6 +67,11 @@ function Navbar() {
                   Appointment
                 </Link>
 
+                <Link to="/Report" className={Styles.li}
+                  onClick={iSmallScreen ? handleHamburgerClick:null}>
+                    Report
+                  </Link>
+
                 {/*This code show when screen is small than 771px*/}
                 {iSmallScreen && <Link to="/Doctor" className={Styles.li}
                   onClick={handleHamburgerClick}>

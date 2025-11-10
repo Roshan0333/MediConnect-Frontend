@@ -40,7 +40,7 @@ function DoctorAvailableAndBooking() {
                 method: "GET",
                 headers: {
                     "Content-Type": "application/json"
-                }
+                },
             })
 
             let response = await fetch_Response.json();
@@ -51,8 +51,7 @@ function DoctorAvailableAndBooking() {
             else if (response.status === 404) {
                 alert(response.msg);
             }
-            else {
-                // alert("Incorrect Information");
+            else{
                 console.log(response.err);
             }
         }

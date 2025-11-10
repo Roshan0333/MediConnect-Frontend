@@ -1,6 +1,7 @@
 import { BsSearch } from "react-icons/bs";
 import './mainComponent.css'
 import Card from '../card/card'
+import ClipLoader from "react-spinners/ClipLoader";
 import { useEffect, useState } from "react";
 import { TimePicker } from '@mui/x-date-pickers/TimePicker';
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
@@ -100,13 +101,19 @@ function MainComponent() {
       const Data = await List.json();
       console.log(Data);
 
-      setDoctorList(Data.Doctors);
+      setDoctorList(Data.Doctors)
 
     }
 
     fetchDoctorList()
   }, [])
 
+
+
+  if(DoctorList.length === 0) {
+    console.log("Hello Main Component")
+    return <ClipLoader color="#32cd32" size={40} />
+  }
 
   return (
     <>
