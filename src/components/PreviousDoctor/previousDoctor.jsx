@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import Card from "../card/card"
+import Styles from "./previousDoctor.module.css"
 
 function PreviousDoctors() {
 
@@ -75,7 +76,7 @@ function PreviousDoctors() {
 
 
     return (
-        <div>
+        <div className={Styles.cardMainDiv}>
             {Object.values(doctorDetails).map((data, index) => {
                 return <Card info={data} key={index}></Card>
             })}
