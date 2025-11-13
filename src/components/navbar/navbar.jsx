@@ -57,6 +57,12 @@ function Navbar() {
             (menuOpen || !iSmallScreen) && (
               <div className={Styles.list}>
 
+
+                {iSmallScreen && <Link to="/Profile" className={Styles.li}
+                onClick={iSmallScreen? handleHamburgerClick : null}>
+                  Profile
+                </Link>}
+
                 <Link to="/" className={Styles.li}
                   onClick={iSmallScreen ? handleHamburgerClick : null}>
                   Home
@@ -67,10 +73,10 @@ function Navbar() {
                   Appointment
                 </Link>
 
-                <Link to="/Report" className={Styles.li}
-                  onClick={iSmallScreen ? handleHamburgerClick:null}>
-                    Report
-                  </Link>
+                {iSmallScreen && <Link to="/Report" className={Styles.li}
+                  onClick={iSmallScreen ? handleHamburgerClick : null}>
+                  Report
+                </Link>}
 
                 {/*This code show when screen is small than 771px*/}
                 {iSmallScreen && <Link to="/Doctor" className={Styles.li}
@@ -97,7 +103,7 @@ function Navbar() {
                   onClick={iSmallScreen ? handleHamburgerClick : null}>
                   Login/SignUp
                 </Link>
-                
+
                 {iSmallScreen && <div><p className={Styles.li}
                   onClick={handleHamburgerClick}>
                   Sign Out

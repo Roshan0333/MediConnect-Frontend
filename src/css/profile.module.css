@@ -1,0 +1,101 @@
+.userprofile_maindiv {
+    width: 100%;
+    height: 88vh;
+    overflow-y: scroll;
+    background-color: white;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.userprofile_maindiv::-webkit-scrollbar {
+    display: none;
+}
+
+.profileimage_div {
+    height: 100px;
+    position: relative;
+}
+
+.profileimage {
+    width: 100px;
+    height: 100%;
+}
+
+.image_edit_icon {
+    position: absolute;
+    top: 75px;
+    left: 80px;
+}
+
+.pincode_city_state_div {
+    width: 95%;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.value_div {
+    width: 95%;
+    height: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 10px;
+
+}
+
+.label_field {
+    height: 100%;
+    width: 80px;
+    text-align: center;
+    background-color: #FF3B00;
+    color: white;
+    border-radius: 10px 0 0 10px;
+    padding: 10px;
+    text-align: center;
+}
+
+.value_field {
+    background-color: #E6E4E4;
+    flex: 1;
+    height: 100%;
+    padding: 10px;
+}
+
+
+.input_field{
+    border: transparent;
+}
+
+.input_field:focus{
+    border: transparent;
+    outline: none;
+}
+
+.edit_value, .zipCheck {
+    background-color: #FF3B00;
+    color: white;
+    height: 100%;
+    padding: 10px;
+    width: 15px;
+    border-radius: 0 10px 10px 0;
+}
+
+.noedit_field{
+    border-radius: 0 10px 10px 0;
+}
+
+.submit_button, .skip_button{
+    width: 150px;
+    height: 55px;
+     background-color: #FF3B00;
+    color: white;
+    border: transparent;
+    border-radius: 10px;
+    font-size: 20px;
+}

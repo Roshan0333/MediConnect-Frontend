@@ -13,6 +13,8 @@ import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-route
 import PreviousDoctors from './components/PreviousDoctor/previousDoctor';
 import MedicalReport from './components/MedicalReport/MedicalReport';
 import UpcomingAppointment from './components/upcomingAppointment/upcomingAppointment';
+import UserProfile from './components/profile/profile';
+import UserDetail from './components/userDetail.jsx/userDetail';
 
 
 function App() {
@@ -49,6 +51,8 @@ function Layout() {
             <Route path='/' element={<MainComponent />} />
             <Route path='/AppointmentBooking' element={<AppointmentBooking />} />
             <Route path='/AppointmentBookingConformation' element={<AppointmentBookingConformation/>}/>
+            <Route path="/UserDetail" element={<UserDetail/>}/>
+            <Route path="/Profile" element={<UserProfile/>}/>
             <Route path="/Appoinment" element={<UpcomingAppointment/>}/>
             <Route path='/Report' element = {<MedicalReport/>}/>
             <Route path="/Doctor" element={<PreviousDoctors/>}/>

@@ -1,9 +1,8 @@
 import { FaKey } from "react-icons/fa"
-import { Link, useLocation } from "react-router-dom"
+import { Link, useLocation, useNavigate  } from "react-router-dom"
 import styles from "../../css/user.module.css"
 import classNames from 'classnames';
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 
 
 function OTPLeft() {
@@ -52,7 +51,9 @@ function OTPLeft() {
             else {
                 alert(response.msg);
                 setOTP("")
-                Navigate("/", {replace:true})
+                Navigate("/UserDetail", {
+                    state:{name, email}
+                })
             }
         }
         catch (err) {
