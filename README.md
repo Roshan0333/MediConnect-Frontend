@@ -1,7 +1,4 @@
-
-<<<head
-MediConnect 
->>>
+# MediConnect
 
 
 The MediConnect Patient Frontend is developed with a vision to simplify the healthcare experience for everyday users. Instead of navigating through long hospital lines or dealing with uncertain appointment availability, the platform offers a modern digital alternative. It allows patients to access essential medical services from the comfort of their home, ensuring convenience, clarity, and control. The interface is built to be welcoming and easy to navigate, so even first-time users can comfortably find what they need without confusion.
