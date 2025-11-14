@@ -124,17 +124,3 @@ function SignUpLeft() {
 }
 
 export default SignUpLeft;
-
-
-//And this is the way apply css given by parent
-
-// function SignUpLeft(props){
-//     console.log(props)
-//     return (
-//         <>
-//         <div id="signupLeftMain" style={props.style}>
-
-//         </div>
-//         </>
-//     )
-// }
