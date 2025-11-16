@@ -37,6 +37,11 @@ function LeftPart() {
         }
         else {
             alert(response.msg)
+
+            if(setUserType === 'Doctor'){
+                localStorage.setItem({UserType: "Doctor"})
+            }
+
             setPassword("");
             setEmail("")
 

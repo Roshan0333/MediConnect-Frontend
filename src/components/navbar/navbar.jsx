@@ -104,6 +104,8 @@ function Navbar() {
                   Login/SignUp
                 </Link>
 
+                {iSmallScreen && <div className={Styles.li}><p >Signout</p></div>}
+
                 {iSmallScreen && <div><p className={Styles.li}
                   onClick={handleHamburgerClick}>
                   Sign Out

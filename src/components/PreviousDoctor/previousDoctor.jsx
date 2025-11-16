@@ -67,11 +67,15 @@ function PreviousDoctors() {
                     console.log(`Error: ${err.message}`)
                 }
             }
+
+            setDoctorDetails(doctorDetail);
         }
 
-    DoctorList()
 
-        setDoctorDetails(doctorDetail);
+
+        if(previousDoctorDetail.length > 0){
+             DoctorList()
+        }
     }, [previousDoctorDetail]);
 
 

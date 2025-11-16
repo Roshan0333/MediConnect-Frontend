@@ -1,12 +1,34 @@
 import profile from "../../assets/photos/profile.png"
-import {FaHome,FaUser,FaCalendar,FaUserMd,FaHistory,FaCog,FaUserPlus, FaFileAlt} from 'react-icons/fa'
+import {FaHome,FaUser,FaCalendar,FaUserMd,FaHistory,FaCog,FaUserPlus, FaFileAlt, FaSignOutAlt } from 'react-icons/fa'
 import "./sideBar.css"
 import {Link} from "react-router-dom"
 
 function Sidebar(){
+
+    const SignOut = async () => {
+        let fetchResult = await fetch("http://localhost:3000/appointment/signout", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            credentials:"include"
+        });
+
+        let fetchResponse = await fetchResult.json();
+
+        let responseStatus = fetchResponse.status;
+
+        if(responseStatus === 500){
+            console.log(`Error: ${fetchResponse.error}`)
+        }
+        else{
+            alert(fetchResponse.msg)
+        }
+    }
+
     return (
         <>
-            <div id="mainDiv">
+            <div id="sideBarMainDiv">
                 <div id="top">
                     <img src={profile} alt="profile" className="profileImage"/>
                     <p className="userName">UserName</p>
@@ -21,6 +43,7 @@ function Sidebar(){
                         <Link to="/History" className="listItem"><FaHistory/><p className="items">History</p></Link>
                         <Link to="/Setting" className="listItem"><FaCog/><p className="items">Setting</p></Link>
                         <Link to="/Signup" className="listItem"><FaUserPlus/><p className="items">Login/SignUp</p></Link>
+                        <div className="listItem" onClick={() => SignOut()}><FaSignOutAlt/><p className="items">Signout</p></div>
                     </div>
                 </div>
             </div>

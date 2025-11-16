@@ -110,10 +110,9 @@ function MainComponent() {
 
 
 
-  if(DoctorList.length === 0) {
-    console.log("Hello Main Component")
-    return <ClipLoader color="#32cd32" size={40} />
-  }
+  // if(DoctorList.length === 0) {
+  //   return <ClipLoader color="#32cd32" size={40} />
+  // }
 
   return (
     <>

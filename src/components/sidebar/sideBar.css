@@ -3,7 +3,8 @@
     margin: 0;
 }
 
-#mainDiv {
+#sideBarMainDiv {
+    height: 88vh;
     display: flex;
     flex-direction: column;
 }
@@ -26,6 +27,16 @@
 
 .userName{
     margin-top: 10px;
+}
+
+#bottom{
+    height: 90%;
+    overflow-y: scroll;
+}
+
+
+#bottom::-webkit-scrollbar{
+    display: none;
 }
 
 #bottom .list{
@@ -79,7 +90,7 @@
         flex-direction: column;
         justify-content: start;
         width: 25vw;
-        border-radius: 10px;
+        border-radius: 10px;overflow-y: scroll;
 }
 
 #bottom .list .listItem {

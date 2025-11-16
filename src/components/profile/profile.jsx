@@ -9,6 +9,7 @@ function UserProfile (){
     const [zipCodeFlag, setZipCodeFlag] = useState(false);
 
     const [userName, setUserName] = useState("");
+    const [phone, setPhone] = useState();
     const [email, setEmail] = useState("");
     const [zipCode, setZipCode] = useState();
     const [city, setCity] = useState("");
@@ -27,6 +28,34 @@ function UserProfile (){
         console.log(fetchResponse);
     }
 
+    const fetch_UserDetail = async () => {
+        let fetchResult = await fetch("", {
+            method:"GET",
+            headers:{
+                "Content-Type":"application/json"
+            },
+            credentials:"include"
+        });
+
+        let fetchResponse = await fetchResult.json();
+
+        let responseStatus = fetchResponse.status;
+
+        if(responseStatus === 500){
+            console.log(`Error: ${fetchResponse.error}`)
+        }
+        else{
+            let userDetail = fetchResponse.userDetail;
+
+            setUserName(userDetail.UserName);
+            setEmail(userDetail.UserEmail);
+            setZipCode(userDetail.Address.PinCode);
+            setCity(userDetail.Address.City);
+            setState(userDetail.Address.State);
+            setAddress(userDetail.Address.StreetName);
+        }
+    }
+
     return (
         <form className={Styles.userprofile_maindiv}>
 
@@ -43,7 +72,12 @@ function UserProfile (){
 
             <div className={Styles.value_div}>
                 <label className={Styles.label_field}>Email</label>
-                {(!flag)?<p className={Styles.value_field}>{email}</p>:<input type="email" value={email} onChange={(e) => setEmail(e.target.value)} className={`${Styles.value_field} ${Styles.input_field}` }/>}
+               <p className={Styles.value_field} style={{borderRadius: "0 10px 10px 0"}}>{email}</p>
+            </div>
+
+            <div className={Styles.value_div}>
+                <label className={Styles.label_field}>Phone</label>
+                {(!flag)?<p className={Styles.value_field}>{phone}</p>:<input type="phone" onChange={(e) => setPhone(e.target.value)} className={`${Styles.value_field} ${Styles.input_field}`}/>}
                 {(!flag)?<FaPen className={Styles.edit_value} onClick={() => setFlag(true)}/>:null}
             </div>
 
