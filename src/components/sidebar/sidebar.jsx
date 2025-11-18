@@ -23,6 +23,7 @@ function Sidebar(){
         }
         else{
             alert(fetchResponse.msg)
+            localStorage.clear()
         }
     }
 

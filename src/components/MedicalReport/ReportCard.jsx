@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import Styles from "./MedicalReport.module.css"
 
 function ReportCard({ data, requestBy }) {

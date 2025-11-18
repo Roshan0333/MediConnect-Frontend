@@ -40,6 +40,28 @@ function Navbar() {
     setMenuOpen((prev) => !prev)
   }
 
+  const SignOut = async () => {
+        let fetchResult = await fetch("http://localhost:3000/appointment/signout", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            credentials:"include"
+        });
+
+        let fetchResponse = await fetchResult.json();
+
+        let responseStatus = fetchResponse.status;
+
+        if(responseStatus === 500){
+            console.log(`Error: ${fetchResponse.error}`)
+        }
+        else{
+            alert(fetchResponse.msg)
+            localStorage.clear()
+        }
+    }
+
 
   return (
     <>
@@ -104,10 +126,11 @@ function Navbar() {
                   Login/SignUp
                 </Link>
 
-                {iSmallScreen && <div className={Styles.li}><p >Signout</p></div>}
-
                 {iSmallScreen && <div><p className={Styles.li}
-                  onClick={handleHamburgerClick}>
+                  onClick={() => {
+                    handleHamburgerClick();
+                    SignOut()
+                  }}>
                   Sign Out
                 </p></div>}
               </div>

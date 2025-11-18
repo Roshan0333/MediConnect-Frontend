@@ -44,15 +44,20 @@ function UserProfile (){
         if(responseStatus === 500){
             console.log(`Error: ${fetchResponse.error}`)
         }
+        else if(responseStatus === 401){
+            alert("Please Login Your Account")
+        }
         else{
             let userDetail = fetchResponse.userDetail;
 
             setUserName(userDetail.UserName);
             setEmail(userDetail.UserEmail);
+            setPhone(userDetail.Phone);
             setZipCode(userDetail.Address.PinCode);
             setCity(userDetail.Address.City);
             setState(userDetail.Address.State);
             setAddress(userDetail.Address.StreetName);
+            setNearBy(userDetail.NearBy)
         }
     }
 

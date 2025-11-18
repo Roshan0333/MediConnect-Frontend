@@ -15,6 +15,7 @@ import MedicalReport from './components/MedicalReport/MedicalReport';
 import UpcomingAppointment from './components/upcomingAppointment/upcomingAppointment';
 import UserProfile from './components/profile/profile';
 import UserDetail from './components/userDetail.jsx/userDetail';
+import DoctorHome from './DoctorComponents/DoctorHome/DoctorHome';
 
 
 function App() {
@@ -40,6 +41,8 @@ function Layout() {
   const location = useLocation();  // <-- get current location
   const isAppointmentPage = location.pathname === '/AppointmentBooking';
 
+  let userType = localStorage.getItem("UserType");
+
 
   return (
     <>
@@ -48,7 +51,7 @@ function Layout() {
         {(!isAppointmentPage) ? <div id='sidebar'><SideBar id="sideBar" /></div> : null}
         <div id='mainComponent' className={(!isAppointmentPage) ? "mainComponent" : "fullWidth_mainComponent"}>
           <Routes>
-            <Route path='/' element={<MainComponent />} />
+            <Route path='/' element={(userType === "Doctor")?<DoctorHome/>:<MainComponent/>} />
             <Route path='/AppointmentBooking' element={<AppointmentBooking />} />
             <Route path='/AppointmentBookingConformation' element={<AppointmentBookingConformation/>}/>
             <Route path="/UserDetail" element={<UserDetail/>}/>

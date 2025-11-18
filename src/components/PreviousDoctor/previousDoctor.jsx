@@ -22,6 +22,8 @@ function PreviousDoctors() {
         let status = response.status;
         if (status === 500) {
             console.log(`Error: ${response.error}`)
+        }else if(status === 401){
+            alert("Please Login Your Account")
         }
         else {
             if (!response.length) {

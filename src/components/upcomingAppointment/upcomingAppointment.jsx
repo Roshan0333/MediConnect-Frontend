@@ -24,6 +24,9 @@ function UpcomingAppointment() {
                 alert(`Message : ${resultResponse.msg}`)
                 console.log(`Message: ${resultResponse.msg}`)
             }
+            else if(responseStatus === 401){
+                alert("Please Login Your Account")
+            }
             else if (responseStatus === 200) {
                 console.log(resultResponse.currentAppointment);
                 setAppointmentList(resultResponse.currentAppointment);

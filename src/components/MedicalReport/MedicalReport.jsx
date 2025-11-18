@@ -33,6 +33,9 @@ function MedicalReport() {
         else if (responseStatus === 204) {
             console.log(`Message : ${fetchResponse.msg}`);
         }
+        else if(responseStatus === 401){
+            alert("Please Login Your Account")
+        }
         else {
             setReportList(fetchResponse.Reports);
             setRequestBy(fetchResponse.RequestFrom)
