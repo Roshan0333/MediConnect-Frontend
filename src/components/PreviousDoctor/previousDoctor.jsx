@@ -9,7 +9,7 @@ function PreviousDoctors() {
 
 
     let Fetch_AppointmentHistory = async () => {
-        let appointmentHistory = await fetch("http://localhost:3000/appointment/booking/AppointmentHistory", {
+        let appointmentHistory = await fetch("http://localhost:3000/mediconnect/booking/AppointmentHistory", {
             method: "GET",
             headers: {
                 "Content-Type": "application/json"
@@ -51,7 +51,7 @@ function PreviousDoctors() {
 
             for (const id of ids) {
                 try {
-                    let fetch_DoctorDetail = await fetch(`http://localhost:3000/appointment/booking/PreviousDoctor?DoctorId=${id}`, {
+                    let fetch_DoctorDetail = await fetch(`http://localhost:3000/mediconnect/booking/PreviousDoctor?DoctorId=${id}`, {
                         method: "GET",
                         headers: {
                             "Content-Type": "application/json"

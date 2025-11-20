@@ -8,7 +8,7 @@ function UpcomingAppointment() {
 
     let fetchAppointment = async () => {
         try {
-            let result = await fetch("http://localhost:3000/appointment/booking/CurrentAppointment", {
+            let result = await fetch("http://localhost:3000/mediconnect/booking/CurrentAppointment", {
                 method: "GET",
                 headers: {
                     "Content-Type": "application/json",

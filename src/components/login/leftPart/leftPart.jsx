@@ -15,7 +15,7 @@ function LeftPart() {
 
 
     let login_Api_Fetch = async () => {
-        let res = await fetch((userType === "Patient") ? "http://localhost:3000/appointment/auth/Login" : "http://localhost:3000/appointment/doctor/auth/Login", {
+        let res = await fetch((userType === "Patient") ? "http://localhost:3000/mediconnect/auth/Login" : "http://localhost:3000/mediconnect/doctor/auth/Login", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"

@@ -37,28 +37,28 @@ function MainComponent() {
     let SearchingUrl = "";
 
     if (doctorName && specialization && selectedTime) {
-      SearchingUrl=(`http://localhost:3000/appointment/SearchBy/DoctorNameAndSpecializationAndDateAndTime?DoctorName=${doctorName}&Specialization=${specialization}&AppointmentDate=${formatDateForApi(selectedDate)}&AppointmentTime=${formatTimeForAPI(selectedTime)}`);
+      SearchingUrl=(`http://localhost:3000/mediconnect/SearchBy/DoctorNameAndSpecializationAndDateAndTime?DoctorName=${doctorName}&Specialization=${specialization}&AppointmentDate=${formatDateForApi(selectedDate)}&AppointmentTime=${formatTimeForAPI(selectedTime)}`);
     }
     else if (doctorName && specialization && !selectedTime) {
-      SearchingUrl=(`http://localhost:3000/appointment/SearchBy/DoctorNameAndSpecializationAndDate?DoctorName=${doctorName}&Specialization=${specialization}&AppointmentDate=${formatDateForApi(selectedDate)}`);
+      SearchingUrl=(`http://localhost:3000/mediconnect/SearchBy/DoctorNameAndSpecializationAndDate?DoctorName=${doctorName}&Specialization=${specialization}&AppointmentDate=${formatDateForApi(selectedDate)}`);
     }
     else if (!doctorName && specialization && selectedTime) {
-      SearchingUrl=(`http://localhost:3000/appointment/SearchBy/SpecializationAndDateAndTime?Specialization=${specialization}&AppointmentDate=${formatDateForApi(selectedDate)}&AppointmentTime=${formatTimeForAPI(selectedTime)}`);
+      SearchingUrl=(`http://localhost:3000/mediconnect/SearchBy/SpecializationAndDateAndTime?Specialization=${specialization}&AppointmentDate=${formatDateForApi(selectedDate)}&AppointmentTime=${formatTimeForAPI(selectedTime)}`);
     }
     else if (doctorName && !specialization && selectedTime) {
-      SearchingUrl=(`http://localhost:3000/appointment/SearchBy/DoctorNameAndDateAndTime?DoctorName=${doctorName}&AppointmentDate=${formatDateForApi(selectedDate)}&AppointmentTime=${formatTimeForAPI(selectedTime)}`)
+      SearchingUrl=(`http://localhost:3000/mediconnect/SearchBy/DoctorNameAndDateAndTime?DoctorName=${doctorName}&AppointmentDate=${formatDateForApi(selectedDate)}&AppointmentTime=${formatTimeForAPI(selectedTime)}`)
     }
     else if (doctorName && !specialization && !selectedTime) {
-      SearchingUrl=(`http://localhost:3000/appointment/SearchBy/DoctorNameAndDate?DoctorName=${doctorName}&AppointmentDate=${formatDateForApi(selectedDate)}`);
+      SearchingUrl=(`http://localhost:3000/mediconnect/SearchBy/DoctorNameAndDate?DoctorName=${doctorName}&AppointmentDate=${formatDateForApi(selectedDate)}`);
     }
     else if (!doctorName && specialization && !selectedTime) {
-      SearchingUrl=(`http://localhost:3000/appointment/SearchBy/SpecializationAndDate?Specialization=${specialization}&AppointmentDate=${formatDateForApi(selectedDate)}`);
+      SearchingUrl=(`http://localhost:3000/mediconnect/SearchBy/SpecializationAndDate?Specialization=${specialization}&AppointmentDate=${formatDateForApi(selectedDate)}`);
     }
     else if (!doctorName && !specialization && selectedTime) {
-      SearchingUrl=(`http://localhost:3000/appointment/SearchBy/DateAndTime?AppointmentDate=${formatDateForApi(selectedDate)}&AppointmentTime=${formatTimeForAPI(selectedTime)}`);
+      SearchingUrl=(`http://localhost:3000/mediconnect/SearchBy/DateAndTime?AppointmentDate=${formatDateForApi(selectedDate)}&AppointmentTime=${formatTimeForAPI(selectedTime)}`);
     }
     else if(!doctorName && !specialization && !selectedTime){
-      SearchingUrl=(`http://localhost:3000/appointment/SearchBy/Date?AppointmentDate=${formatDateForApi(selectedDate)}`)
+      SearchingUrl=(`http://localhost:3000/mediconnect/SearchBy/Date?AppointmentDate=${formatDateForApi(selectedDate)}`)
     }
 
     await SearchingDoctor(SearchingUrl);
@@ -91,7 +91,7 @@ function MainComponent() {
 
   useEffect(() => {
     const fetchDoctorList = async () => {
-      let List = await fetch("http://localhost:3000/appointment/doctor/auth/List", {
+      let List = await fetch("http://localhost:3000/mediconnect/doctor/auth/List", {
         method: "GET",
         headers: {
           "Content-Type": "application/json"

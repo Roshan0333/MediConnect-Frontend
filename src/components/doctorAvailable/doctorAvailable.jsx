@@ -36,7 +36,7 @@ function DoctorAvailableAndBooking() {
 
     let fetch_DoctorData = async () => {
         try {
-            let fetch_Response = await fetch(`http://localhost:3000/appointment/SearchBy/DoctorId?id=${id}&AppointmentDate=${formattedDate}`, {
+            let fetch_Response = await fetch(`http://localhost:3000/mediconnect/SearchBy/DoctorId?id=${id}&AppointmentDate=${formattedDate}`, {
                 method: "GET",
                 headers: {
                     "Content-Type": "application/json"

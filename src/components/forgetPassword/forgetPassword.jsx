@@ -18,7 +18,7 @@ function ForgetPassword() {
 
 
     async function forget_Password_Api(){
-        let res = await fetch("http://localhost:3000/appointment/auth/Otp",{
+        let res = await fetch("http://localhost:3000/mediconnect/auth/Otp",{
             method:"POST",
             headers:{
                 "Content-Type":"application/json"

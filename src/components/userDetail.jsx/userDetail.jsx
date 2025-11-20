@@ -13,6 +13,8 @@ function UserDetail() {
 
     const [userName, setUserName] = useState("");
     const [userEmail, setEmail] = useState("");
+    const [userPhone, setUserPhone] = useState()
+    const [userAge, setUserAge] = useState("");
     const [zipCode, setZipCode] = useState();
     const [city, setCity] = useState("");
     const [state, setState] = useState("");
@@ -74,20 +76,26 @@ function UserDetail() {
 
             <div className={Styles.value_div}>
                 <label className={Styles.label_field}>Email</label>
-                <p className={Styles.value_field} style={{ borderRadius: "0 10px 10px 0" }}>{email}</p>
+                <p className={Styles.value_field} style={{ borderRadius: "0 10px 10px 0" }} onChange={(e) => setEmail(e.target.value)}>{userEmail}</p>
             </div>
 
-            <div className={Styles.value_div}>
-                <label className={Styles.label_field}>Phone</label>
-                {(!flag) ? <p className={Styles.value_field}>{phone}</p> : <input type="phone" onChange={(e) => setPhone(e.target.value)} className={`${Styles.value_field} ${Styles.input_field}`} />}
-                {(!flag) ? <FaPen className={Styles.edit_value} onClick={() => setFlag(true)} /> : null}
+            <div className={Styles.multivalue_div}>
+                <div className={Styles.value_div}>
+                    <label className={Styles.label_field}>Phone</label>
+                     <input type="phone" value={userPhone} onChange={(e) => setUserPhone(e.target.value)} className={`${Styles.value_field} ${Styles.input_field}`} />
+                </div>
+
+                <div className={Styles.value_div}>
+                <label className={Styles.label_field}>Age</label>
+                <input type="Number" max={150} value={userAge} onChange={(e) => setUserAge(e.target.value)} className={`${Styles.value_field} ${Styles.input_field}`} />
+            </div>
             </div>
 
-            <div className={Styles.pincode_city_state_div}>
+            <div className={Styles.multivalue_div}>
 
                 <div className={Styles.value_div}>
                     <label className={Styles.label_field}>Pin Code</label>
-                    <input type="Number" max={999999} onChange={(e) => setZipCode(e.target.value)} className={`${Styles.value_field} ${Styles.input_field}`} />
+                    <input type="Number" max={999999} value={zipCode} onChange={(e) => setZipCode(e.target.value)} className={`${Styles.value_field} ${Styles.input_field}`} />
                     <FaCheck className={Styles.zipCheck} onChange={fetch_CityAndState()} />
                 </div>
 
@@ -114,8 +122,8 @@ function UserDetail() {
             </div>
 
             <div>
-                <button className={Styles.skip_button}>Skip</button>
-                <input type="submit" className={Styles.submit_button} />
+                <button className={Styles.skip_button} onClick={() => post_UserDetail()}>Skip</button>
+                <input type="submit" onClick={() => post_UserDetail()} className={Styles.submit_button} />
             </div>
         </form>
     )

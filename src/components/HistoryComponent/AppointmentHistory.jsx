@@ -7,7 +7,7 @@ function AppointmentHistoryComponent () {
     const [AppointmentList, setAppointmentList] = useState([]);
 
     let fetch_AppointmentHistory = async () => {
-        let res_History = await fetch("http://localhost:3000/appointment/booking/AppointmentHistory", {
+        let res_History = await fetch("http://localhost:3000/mediconnect/booking/AppointmentHistory", {
             method:"GET",
             headers:{
                 "Content-Type":"application/json",

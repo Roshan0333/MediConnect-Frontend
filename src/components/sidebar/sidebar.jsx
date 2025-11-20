@@ -6,7 +6,7 @@ import {Link} from "react-router-dom"
 function Sidebar(){
 
     const SignOut = async () => {
-        let fetchResult = await fetch("http://localhost:3000/appointment/signout", {
+        let fetchResult = await fetch("http://localhost:3000/mediconnect/signout", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"

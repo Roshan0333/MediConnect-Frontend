@@ -28,7 +28,7 @@ function OTPLeft() {
 
     let Signup_Method = async () => {
         try {
-            let Signup_fetch = await fetch("http://localhost:3000/appointment/auth/Signup", {
+            let Signup_fetch = await fetch("http://localhost:3000/mediconnect/auth/Signup", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
@@ -66,7 +66,7 @@ function OTPLeft() {
 
     let ForgetPassword_Method = async () => {
         try {
-            let forgetPassword_fetch = await fetch((userType === "Patient") ? "http://localhost:3000/appointment/auth/forgetPassword" : "http://localhost:3000/appointment/doctor/auth/forgetPassword", {
+            let forgetPassword_fetch = await fetch((userType === "Patient") ? "http://localhost:3000/mediconnect/auth/forgetPassword" : "http://localhost:3000/mediconnect/doctor/auth/forgetPassword", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"

@@ -12,7 +12,7 @@ function MedicalReport() {
     
 
     let fetchReport = async () => {
-        let fetchResult = await fetch("http://localhost:3000/appointment/management/Report/ReportGet", {
+        let fetchResult = await fetch("http://localhost:3000/mediconnect/management/Report/ReportGet", {
             method: "GET",
             headers: {
                 "Content-Type": 'application/json'

@@ -10,7 +10,7 @@ function AppointmentBooking() {
 
     let AppointmentBookingConformation = async () => {
         let Booking = await fetch(
-            "http://localhost:3000/appointment/booking/AppointmentBooking",
+            "http://localhost:3000/mediconnect/booking/AppointmentBooking",
             {
                 method: "POST",
                 headers: {

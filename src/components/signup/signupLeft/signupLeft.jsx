@@ -21,7 +21,7 @@ function SignUpLeft() {
     let OTP_Method = async () => {
         try {
             console.log("Hello")
-            let res = await fetch("http://localhost:3000/appointment/auth/Otp", {
+            let res = await fetch("http://localhost:3000/mediconnect/auth/Otp", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
