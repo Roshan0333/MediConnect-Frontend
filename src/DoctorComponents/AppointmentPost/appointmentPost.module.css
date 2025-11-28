@@ -1,0 +1,68 @@
+.mainDiv {
+    width: 90vw;
+    height: 90vh;
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 100px;
+    overflow-y: scroll;
+}
+
+.dayAppointmentMainDiv {
+    width: 66%;
+    height: auto;
+    margin-top: 10px;
+    padding-top: 10px;
+    background-color: white;
+    border-radius: 10px;
+    justify-items: center;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.dayAppointment_TopPart {
+    width: 96%;
+    display: flex;
+    justify-items: center;
+    justify-content: space-between;
+}
+
+.dayAppointment_TopSubPart {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    padding: 5px 10px;
+}
+
+.dayAppointment_SecondPart {
+    width: 98%;
+    display: grid;
+    grid-template-columns: repeat(5, 170px);
+    grid-template-rows: repeat(3, 70px);
+    gap: 10px;
+}
+
+.time {
+    background-color: #ecebe7;
+    margin: 10px;
+    text-align: center;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.unCheckTime{
+    background-color: #bdbcb8;
+    margin: 10px;
+    text-align: center;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.postButton{
+    background-color: #FF3B00;
+    color: white;
+}

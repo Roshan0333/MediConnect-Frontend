@@ -33,12 +33,15 @@ function LeftPart() {
             console.log(`Error: ${response.error}`)
         }
         else if (response.status === 401) {
-            alert(response.msg)
+            alert(response.msg,response.status)
+        }
+        else if (response.status === 400) {
+            alert(response.msg, response.status)
         }
         else {
             alert(response.msg)
 
-            if(setUserType === 'Doctor'){
+            if(userType === 'Doctor'){
                 localStorage.setItem("UserType", "Doctor")
             }
             else{

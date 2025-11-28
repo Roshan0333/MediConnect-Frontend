@@ -17,10 +17,10 @@ import UserProfile from './components/profile/profile';
 import UserDetail from './components/userDetail.jsx/userDetail';
 import DoctorHome from './DoctorComponents/DoctorHome/DoctorHome';
 import DoctorProfile from './DoctorComponents/DoctorProfile/DoctorProfile';
+import AppoiontmentPost from './DoctorComponents/AppointmentPost/appointmentPost';
 
 
 function App() {
-
 
   return (
     <>
@@ -30,7 +30,7 @@ function App() {
           <Route path='/Login' element={<Login />} />
           <Route path='/ForgetPassword' element={<ForgetPasswordCombine />} />
           <Route path='/Otp' element={<OTP />} />
-          <Route path='/*' element={<Layout/>} />
+          <Route path='/*' element={<Layout />} />
         </Routes>
       </Router>
     </>
@@ -52,15 +52,16 @@ function Layout() {
         {(!isAppointmentPage) ? <div id='sidebar'><SideBar id="sideBar" /></div> : null}
         <div id='mainComponent' className={(!isAppointmentPage) ? "mainComponent" : "fullWidth_mainComponent"}>
           <Routes>
-            <Route path='/' element={(userType === "Doctor")?<DoctorHome/>:<MainComponent/>} />
+            <Route path='/' element={(userType === "Doctor") ? <DoctorHome /> : <MainComponent />} />
             <Route path='/AppointmentBooking' element={<AppointmentBooking />} />
-            <Route path='/AppointmentBookingConformation' element={<AppointmentBookingConformation/>}/>
-            <Route path="/UserDetail" element={<UserDetail/>}/>
-            <Route path="/Profile" element={(userType === "Doctor")?<DoctorProfile/>:<UserProfile/>}/>
-            <Route path="/Appoinment" element={<UpcomingAppointment/>}/>
-            <Route path='/Report' element = {<MedicalReport/>}/>
-            <Route path="/Doctor" element={<PreviousDoctors/>}/>
-            <Route path='/History' element={<AppointmentHistoryComponent/>} />
+            <Route path='/AppointmentBookingConformation' element={<AppointmentBookingConformation />} />
+            <Route path="/UserDetail" element={<UserDetail />} />
+            <Route path="/Profile" element={(userType === "Doctor") ? <DoctorProfile /> : <UserProfile />} />
+            <Route path="/Appoinment" element={<UpcomingAppointment />} />
+            <Route path='/Report' element={<MedicalReport />} />
+            <Route path="/Doctor" element={<PreviousDoctors />} />
+            <Route path="/AppointmentPost" element={<AppoiontmentPost />} />
+            <Route path='/History' element={<AppointmentHistoryComponent />} />
             <Route path='/Setting' />
           </Routes>
         </div>

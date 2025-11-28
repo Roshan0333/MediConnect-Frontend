@@ -8,6 +8,7 @@ function UserProfile() {
     const [flag, setFlag] = useState(false);
     const [zipCodeFlag, setZipCodeFlag] = useState(false);
 
+    const [profilePhoto, setProfilePhoto] = useState("");
     const [userName, setUserName] = useState("");
     const [phone, setPhone] = useState();
     const [email, setEmail] = useState("");
@@ -69,7 +70,7 @@ function UserProfile() {
                 "Content-Type": "application/json"
             },
             body: {
-                ProfilePhoto: "",
+                ProfilePhoto: profilePhoto,
                 UserName: userName,
                 UserEmail: email,
                 Phone: phone,

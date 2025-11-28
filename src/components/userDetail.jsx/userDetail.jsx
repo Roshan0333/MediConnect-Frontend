@@ -11,8 +11,9 @@ function UserDetail() {
 
     const [flag, setFlag] = useState(false);
 
-    const [userName, setUserName] = useState("");
-    const [userEmail, setEmail] = useState("");
+    const [profilePhoto, setProfilePhoto] = useState("")
+    const [userName, setUserName] = useState(name);
+    const [userEmail, setEmail] = useState(email);
     const [userPhone, setUserPhone] = useState()
     const [userAge, setUserAge] = useState("");
     const [zipCode, setZipCode] = useState();

@@ -5,9 +5,6 @@ import { useMediaQuery } from 'react-responsive';
 import { useState, useEffect } from 'react';
 import { Link } from "react-router-dom"
 
-
-
-
 function Navbar() {
 
   //Use for make make responsive.
@@ -40,27 +37,29 @@ function Navbar() {
     setMenuOpen((prev) => !prev)
   }
 
+  const userType = localStorage.getItem("UserType")
+
   const SignOut = async () => {
-        let fetchResult = await fetch("http://localhost:3000/mediconnect/signout", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            credentials:"include"
-        });
+    let fetchResult = await fetch("http://localhost:3000/mediconnect/signout", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      credentials: "include"
+    });
 
-        let fetchResponse = await fetchResult.json();
+    let fetchResponse = await fetchResult.json();
 
-        let responseStatus = fetchResponse.status;
+    let responseStatus = fetchResponse.status;
 
-        if(responseStatus === 500){
-            console.log(`Error: ${fetchResponse.error}`)
-        }
-        else{
-            alert(fetchResponse.msg)
-            localStorage.clear()
-        }
+    if (responseStatus === 500) {
+      console.log(`Error: ${fetchResponse.error}`)
     }
+    else {
+      alert(fetchResponse.msg)
+      localStorage.clear()
+    }
+  }
 
 
   return (
@@ -81,7 +80,7 @@ function Navbar() {
 
 
                 {iSmallScreen && <Link to="/Profile" className={Styles.li}
-                onClick={iSmallScreen? handleHamburgerClick : null}>
+                  onClick={iSmallScreen ? handleHamburgerClick : null}>
                   Profile
                 </Link>}
 
@@ -100,11 +99,15 @@ function Navbar() {
                   Report
                 </Link>}
 
-                {/*This code show when screen is small than 771px*/}
-                {iSmallScreen && <Link to="/Doctor" className={Styles.li}
-                  onClick={handleHamburgerClick}>
-                  Doctor
-                </Link>}
+                {(userType === "Doctor") ?(iSmallScreen && <Link to="/AppointmentPost" className={Styles.li}
+                    onClick={handleHamburgerClick}>
+                    Appointment Post
+                  </Link>):
+                  (iSmallScreen && <Link to="/Doctor" className={Styles.li}
+                    onClick={handleHamburgerClick}>
+                    Doctor
+                  </Link>)
+                  }
 
                 {iSmallScreen && <Link to="/History" className={Styles.li}
                   onClick={handleHamburgerClick}>
@@ -143,7 +146,8 @@ function Navbar() {
           )}
 
         </div>
-      </div></>
+      </div>
+    </>
   )
 }
 

@@ -50,6 +50,7 @@ function OTPLeft() {
             }
             else {
                 alert(response.msg);
+                // localStorage.setItem("UserType", "Patient")
                 setOTP("")
                 Navigate("/UserDetail", {
                     state:{name, email}

@@ -1,11 +1,11 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Profile from "../../assets/photos/profile.png";
 import { FaCamera } from "react-icons/fa";
-import Styles from '../../css/profile.module.js';
+import Styles from '../../css/profile.module.css';
 
 function DoctorProfile() {
 
-
+    const [profilePhoto, setProfilePhoto] = useState("")
     const [doctorName, setDoctorName] = useState("");
     const [doctorEmail, setDoctorEmail] = useState("");
     const [doctorPhone, setDoctorPhone] = useState();
@@ -40,6 +40,7 @@ function DoctorProfile() {
             console.log(fetchResponse.error)
         }
         else{
+            setProfilePhoto(fetchResponse.profilePhoto);
             setDoctorName(fetchResponse.DoctorName);
             setDoctorEmail(fetchResponse.DoctorEmail);
             setDoctorPhone(fetchResponse.DoctorPhone);
@@ -57,7 +58,7 @@ function DoctorProfile() {
     }
 
     useEffect(() => {
-        fetch_DoctorDetail()
+        fetch_DoctorDetail();
     },[])
 
 
@@ -66,7 +67,7 @@ function DoctorProfile() {
             <form className={Styles.userprofile_maindiv}>
 
                 <div className={Styles.profileimage_div}>
-                    <img src={Profile} className={Styles.profileimage} alt="Profile Image" />
+                    <img src={(profilePhoto == "")?Profile:null} className={Styles.profileimage} alt="Profile Image" />
                     <FaCamera className={Styles.image_edit_icon} />
                 </div>
 
