@@ -7,12 +7,12 @@ function MedicalReport() {
 
     const [reportList, setReportList] = useState([]);
 
-    const [requestBy, setRequestBy] = useState("");
+    const userType = localStorage.getItem("UserType")
 
     
 
     let fetchReport = async () => {
-        let fetchResult = await fetch("http://localhost:3000/mediconnect/management/Report/ReportGet", {
+        let fetchResult = await fetch((userType === "Doctor")?"http://localhost:3000/mediconnect/management/Report/ReportGetByDoctor":"http://localhost:3000/mediconnect/management/Report/ReportGetByPatient", {
             method: "GET",
             headers: {
                 "Content-Type": 'application/json'
@@ -38,7 +38,6 @@ function MedicalReport() {
         }
         else {
             setReportList(fetchResponse.Reports);
-            setRequestBy(fetchResponse.RequestFrom)
             console.log(`Medical Reports: ${fetchResponse.Reports}`);
         }
     }
@@ -56,7 +55,7 @@ function MedicalReport() {
 
     return (
         <div className={Styles.ReportMainDiv}>
-            {reportList.map((reportData, index) => <ReportCard data={reportData} requestBy={requestBy} key={index}/>)}
+            {reportList.map((reportData, index) => <ReportCard data={reportData} key={index}/>)}
         </div>
     )
 }

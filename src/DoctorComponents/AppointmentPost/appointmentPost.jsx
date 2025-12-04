@@ -30,11 +30,13 @@ function AppoiontmentPost() {
 
         for (let i = 0; i < timeStamp.length; i++) {
             let date = new Date(timeStamp[i]);
-            dateArray.push(`${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`)
+            let dates = date.toISOString().split('T')[0]
+            let [year, month, day] = dates.split("-")
+            dateArray.push(`${day}/${month}/${year}`)
         }
 
 
-        if (today === 0 && currentTime >= "07:00 PM") {
+        if (today === 1 && currentTime >= "12:00 PM") {
             setUrl("Post")
         }
 
@@ -42,7 +44,7 @@ function AppoiontmentPost() {
     }, [])
 
     useEffect(() => {
-
+        console.log(weekDates)
     }, [weekDates])
 
     return (

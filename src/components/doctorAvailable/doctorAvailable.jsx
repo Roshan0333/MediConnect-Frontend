@@ -10,6 +10,11 @@ function DoctorAvailableAndBooking() {
 
     let location = useLocation();
 
+    let { id, doctorName, specialization, experience, date, fee } = location.state;
+
+
+    let [selectedDate, setDate] = useState(date)
+
     let [timeList, setTimeList] = useState([]);
 
     let [selectTime, setSelectTime] = useState("");
@@ -18,11 +23,6 @@ function DoctorAvailableAndBooking() {
     nextWeekDate.setDate(nextWeekDate.getDate() + 7);
 
     let maxDate = nextWeekDate.toISOString().split('T')[0];
-
-    let { id, doctorName, specialization, experience, date, fee } = location.state;
-
-
-    let [selectedDate, setDate] = useState(date)
 
     const formatDateForAPI = (dateStr) => {
         const [year, month, day] = dateStr.split("-");
@@ -47,11 +47,12 @@ function DoctorAvailableAndBooking() {
 
             if (response.status === 200) {
                 setTimeList(response.DoctorAvailable.Available);
+                console.log(response.DoctorAvailable.Available)
             }
             else if (response.status === 404) {
                 alert(response.msg);
             }
-            else{
+            else {
                 console.log(response.err);
             }
         }

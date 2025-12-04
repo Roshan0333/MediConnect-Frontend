@@ -57,7 +57,7 @@ function Layout() {
             <Route path='/AppointmentBookingConformation' element={<AppointmentBookingConformation />} />
             <Route path="/UserDetail" element={<UserDetail />} />
             <Route path="/Profile" element={(userType === "Doctor") ? <DoctorProfile /> : <UserProfile />} />
-            <Route path="/Appoinment" element={<UpcomingAppointment />} />
+            <Route path="/Appointment" element={<UpcomingAppointment/>} />
             <Route path='/Report' element={<MedicalReport />} />
             <Route path="/Doctor" element={<PreviousDoctors />} />
             <Route path="/AppointmentPost" element={<AppoiontmentPost />} />

@@ -1,20 +1,32 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import ProfileImage from "../../assets/photos/profile.png";
 import Styles from "./upcomingAppointment.module.css";
 
-function UpcomingAppointmentCard({data}) {
+function UpcomingAppointmentCard({ data, cancelAppointment }) {
 
     const [paymentStatus, setpaymentStatus] = useState("Pay Now");
 
-    if(data.PaymentStatus){
-        setpaymentStatus("Payed");
+
+    const cancelAppointmentHandle = (appointmentId) => {
+        let confirmation = confirm("Conform this Appointment is Cancelling")
+        
+        if(confirmation === true){
+            cancelAppointment(appointmentId)
+        }
     }
 
 
+    useEffect(() => {
+        if (data.PaymentStatus) {
+            setpaymentStatus("Payed");
+        }
+    }, [])
+
+
     return (
-        <div>
+        <div className={Styles.cardMain}>
             <div className={Styles.ImageDiv}>
-                <img src={ProfileImage} alt="Doctor Image" className={Styles.Image}/>
+                <img src={ProfileImage} alt="Doctor Image" className={Styles.Image} />
             </div>
 
             <div className={Styles.inputDiv}>
@@ -37,9 +49,9 @@ function UpcomingAppointmentCard({data}) {
                 <p className={Styles.inputValue}>{data.AppointmentTime}</p>
             </div>
 
-            <div>
-                {(paymentStatus === "Pay Now")?<button className={Styles.PaymentStatus}>Pay Now</button>:<button className={Styles.PaymentStatus}>Payed</button>};
-                <button className={Styles.CancelButton}>Cancel</button>
+            <div className={Styles.buttons}>
+                {(paymentStatus === "Pay Now") ? <button className={Styles.PayNow}>Pay Now</button> : <button className={Styles.Payed}>Payed</button>}
+                <button className={Styles.CancelButton} onClick={() => cancelAppointmentHandle(data._id)}>Cancel</button>
             </div>
 
         </div>

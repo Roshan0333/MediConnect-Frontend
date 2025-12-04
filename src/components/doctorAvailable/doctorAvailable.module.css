@@ -1,7 +1,8 @@
 .mainDiv {
     /* width: 100vw; */
-    height: 100vh;
+    height: 88vh;
     display: flex;
+        overflow-y: scroll;
 }
 
 .DoctorInfo_Div{
@@ -38,8 +39,9 @@
 }
 
 .AppointmentInfo_Div{
-    width: 70%;
+    height: 100%;
     border-radius:10px;
+    overflow-y: scroll;
 }
 
 .AppointmentDate{
@@ -69,6 +71,7 @@
 }
 
 .Time{
+    height: 60px;
     background-color: #ffffff;
     margin: 10px;
     text-align: center;
@@ -139,6 +142,7 @@
     .AppointmentTime{
         display: grid;
         grid-template-columns: repeat(4, 170px);
+        grid-template-rows: repeat(_, 70px);
     }
 
     .BookingButtonDiv{
@@ -154,7 +158,8 @@
 
     .AppointmentTime{
         display: grid;
-        grid-template-columns: repeat(2, 180px);
+        grid-template-columns: repeat(2, 180px); 
+        grid-template-rows: repeat(_, 70px);
     }
 }
 
@@ -162,5 +167,16 @@
     .AppointmentTime{
         display: grid;
         grid-template-columns: repeat(2, 160px);
+        grid-template-rows: repeat(_, 70px);
     }
 }
+
+
+.mainDiv::-webkit-scrollbar{
+    display: none;
+}
+
+.AppointmentInfo_Div::-webkit-scrollbar{
+    display: none;
+}
+

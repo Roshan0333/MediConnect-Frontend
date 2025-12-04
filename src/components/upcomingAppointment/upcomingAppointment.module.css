@@ -1,0 +1,82 @@
+.cardMain{
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    width: 290px;
+    height: 300px;
+    align-items: center;
+    gap: 8px;
+    border-radius: 10px;
+}
+
+.ImageDiv{
+    width: 100px;
+    height: 100px;
+    margin-top: 10px;
+}
+
+.Image{
+    width: 100px;
+    height: 100px;
+}
+
+.inputDiv{
+    width: 90%;
+    display: flex;
+    justify-content: center;
+}
+
+.buttons{
+    width: 75%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.PayNow{
+    background-color: #FF3B00;
+    color: white;
+}
+
+.Payed{
+    background-color: green;
+    color: white;
+}
+
+.CancelButton{
+    background-color: red;
+    color: white;
+}
+
+
+.Appointment_MainDiv{
+    height: 88vh;
+    display: grid;
+    grid-template-columns: repeat(4, 300px);
+    grid-template-rows: repeat(5, 310px);
+}
+
+@media (max-Width: 770px){
+    .cardMain{
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    width: 27vw;
+    height: 250px;
+    align-items: center;
+    gap: 8px;
+    border-radius: 10px;
+}
+}
+
+@media (max-Width: 430px){
+    .cardMain{
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    width: 40vw;
+    height: 250px;
+    align-items: center;
+    gap: 8px;
+    border-radius: 10px;
+}
+}

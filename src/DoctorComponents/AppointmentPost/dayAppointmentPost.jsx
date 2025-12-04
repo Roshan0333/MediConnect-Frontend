@@ -27,12 +27,15 @@ function DayAppointmentPost({ date, urlType }) {
 
 
     const postWeeklyAppointment = async () => {
-        const fetchResult = await fetch("", {
+        const fetchResult = await fetch("http://localhost:3000/mediconnect/doctor/available/AddAvailable", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
-            body: {},
+            body: JSON.stringify({
+                 Date:date,
+                AvailableArray: appointmentSlots
+            }),
             credentials: "include"
         })
 
@@ -49,12 +52,18 @@ function DayAppointmentPost({ date, urlType }) {
     }
 
     const editWeeklyAppointment = async () => {
-        const fetchResult = await fetch("", {
-            method: "PUT",
+
+        console.log(appointmentSlots);
+
+        const fetchResult = await fetch("http://localhost:3000/mediconnect/doctor/available/EditTime", {
+            method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
-            body: {},
+            body: JSON.stringify({
+                Date: date,
+                AvailableTimeArray: appointmentSlots
+            }),
             credentials: "include"
         });
 
@@ -72,7 +81,6 @@ function DayAppointmentPost({ date, urlType }) {
 
     let deleteSlot = (index) => {
         appointmentSlots[index].Status = !appointmentSlots[index].Status;
-        console.log(appointmentSlots);
     }
 
 
@@ -97,7 +105,7 @@ function DayAppointmentPost({ date, urlType }) {
                     <Switch onClick={() => {
                         switchChange();
                     }} />
-                    {(urlType === "Post") ? <button className={Styles.postButton} onClick={() => postWeeklyAppointment()}>Post</button> : <button className={Styles.postButton} onClick={() => { () => editWeeklyAppointment() }}>Edit</button>}
+                    {(urlType === "Post") ? <button className={Styles.postButton} onClick={() => postWeeklyAppointment()}>Post</button> : <button className={Styles.postButton} onClick={() => editWeeklyAppointment() }>Edit</button>}
                 </div>
             </div>
 

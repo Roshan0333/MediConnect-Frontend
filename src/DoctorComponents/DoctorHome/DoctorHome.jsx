@@ -15,7 +15,7 @@ function DoctorHome() {
 
 
     const appointmentFetch = async () => {
-        const fetchResult = await fetch(`http://localhost:3000/appointment/doctor/appointment/TodayAppointment?todayDate=${formatDate(todayDate)}`,{
+        const fetchResult = await fetch(`http://localhost:3000/mediconnect/doctor/appointment/TodayAppointment?todayDate=${formatDate(todayDate)}`,{
             method:"GET",
             headers:{
                 "Content-Type":"application/json"
@@ -40,6 +40,7 @@ function DoctorHome() {
         }
         else{
             setTodayAppointmentList(fetchResponse.Appointment)
+            console.log(fetchResponse.Appointment)
         }
     }
 

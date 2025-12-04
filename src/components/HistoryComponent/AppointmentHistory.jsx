@@ -6,8 +6,10 @@ function AppointmentHistoryComponent () {
 
     const [AppointmentList, setAppointmentList] = useState([]);
 
+    let userType = localStorage.getItem("UserType");
+
     let fetch_AppointmentHistory = async () => {
-        let res_History = await fetch("http://localhost:3000/mediconnect/booking/AppointmentHistory", {
+        let res_History = await fetch((userType === "Doctor")?"http://localhost:3000/mediconnect/doctor/appointment/HistoryAppointment":"http://localhost:3000/mediconnect/booking/AppointmentHistory", {
             method:"GET",
             headers:{
                 "Content-Type":"application/json",
