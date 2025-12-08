@@ -1,0 +1,19 @@
+.loadingDiv {
+    width: 60vw;
+    height: 95vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+@media (max-Width: 770px) {
+    .loadingDiv {
+        width: 90vw;
+        height: 95vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+}

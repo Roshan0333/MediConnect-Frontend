@@ -1,0 +1,105 @@
+.patientCard {
+    width: 260px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 10px;
+    align-items: center;
+    justify-content: center;
+}
+
+.dataField {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 5px;
+}
+
+.doctorHomeMainDiv {
+    display: grid;
+    grid-template-columns: repeat(3, 260px);
+    grid-template-rows: repeat(5, 200px);
+    margin-left: 20px;
+    /* width: 59vw; */
+    height: 95vh;
+    border-radius: 10px;
+    overflow: scroll;
+    gap: 20px;
+
+}
+
+.doctorHomeMainDiv::-webkit-scrollbar {
+    display: none;
+}
+
+/* @media (max-width: 1920px) {
+
+    .Card{
+        width: 260px;
+        height: 200px;
+    }
+
+    .doctorHomeMainDiv {
+        display: grid;
+        grid-template-columns: repeat(3, 260px);
+        grid-template-rows: repeat(5, 200px);
+        gap: 20px;
+    }
+} */
+
+
+.notFoundDiv {
+    height: 100%;
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.notFound {
+    font-size: 20px;
+    color: black;
+}
+
+
+@media (max-width: 1024px) {
+
+    .patientCard {
+        width: 300px;
+        height: 200px;
+    }
+
+    .doctorHomeMainDiv {
+        display: grid;
+        grid-template-columns: repeat(2, 300px);
+        gap: 20px;
+    }
+
+}
+
+
+@media (max-width: 426px) {
+    .patientCard {
+        width: 80vw;
+        height: 200px;
+    }
+
+    .doctorHomeMainDiv {
+        height: 90vh;
+        display: grid;
+        grid-template-columns: repeat(1, 80vw);
+    }
+
+    .notFoundDiv {
+        height: 100%;
+        background-color: transparent;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .notFound {
+        font-size: 18px;
+        color: black;
+    }
+}

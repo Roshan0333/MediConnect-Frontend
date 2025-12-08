@@ -44,7 +44,7 @@ function AppoiontmentPost() {
     }, [])
 
     useEffect(() => {
-        console.log(weekDates)
+
     }, [weekDates])
 
     return (

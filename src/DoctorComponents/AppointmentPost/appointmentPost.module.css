@@ -43,6 +43,7 @@
 }
 
 .time {
+    width: 160px;
     background-color: #ecebe7;
     margin: 10px;
     text-align: center;
@@ -52,7 +53,8 @@
     align-items: center;
 }
 
-.unCheckTime{
+.unCheckTime {
+    width: 160px;
     background-color: #bdbcb8;
     margin: 10px;
     text-align: center;
@@ -62,7 +64,100 @@
     align-items: center;
 }
 
-.postButton{
+.multipleButtonDiv {
+    display: flex;
+    justify-content: space-between;
+}
+
+.postButton,
+.editButton,
+.deleteButton {
     background-color: #FF3B00;
     color: white;
+    margin-left: 10px;
+}
+
+
+@media (max-width: 770px) {
+    .main {
+        width: 99vw;
+    }
+
+    .dayAppointmentMainDiv {
+        width: 100%;
+    }
+
+    .dayAppointment_SecondPart {
+        display: grid;
+        grid-template-columns: repeat(4, 160px);
+        grid-template-rows: repeat(4, 70px);
+    }
+
+    .time {
+        width: 150px;
+    }
+
+    .unCheckTime {
+        width: 150px;
+    }
+}
+
+@media (max-width : 426px) {
+    .main {
+        width: 99vw;
+    }
+
+    .dayAppointmentMainDiv {
+        width: 100%;
+    }
+
+    .dayAppointment_TopPart{
+        width: 89%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .dayAppointment_TopSubPart{
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .dateDiv{
+        width: 40%;
+    }
+
+    .dayAppointment_SecondPart {
+        display: grid;
+        grid-template-columns: repeat(2, 180px);
+        grid-template-rows: repeat(8, 70px);
+    }
+
+    .time {
+        width: 170px;
+    }
+
+    .unCheckTime {
+        width: 170px;
+    }
+}
+
+@media (max-width: 376px){
+    .dayAppointment_SecondPart {
+        display: grid;
+        grid-template-columns: repeat(2, 155px);
+        grid-template-rows: repeat(8, 70px);
+    }
+
+    .time {
+        width: 145px;
+    }
+
+    .unCheckTime {
+        width: 145px;
+    }
+}
+
+.mainDiv::-webkit-scrollbar{
+    display: none;
 }

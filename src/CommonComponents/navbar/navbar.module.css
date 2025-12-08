@@ -1,0 +1,160 @@
+* {
+    padding: 0px;
+    margin: 0px;
+    color: #000000;
+}
+
+/* #root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  justify-content: center;
+  justify-items: center;
+  align-content: center;
+  align-items: center;
+  background-color: #ffffff;
+} */
+
+.main {
+    width: 80vw;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    background-color: #ffffff;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+.topleft {
+    width: 13.5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 10px;
+}
+
+.p {
+    font-size: 18px;
+}
+
+.logo {
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+}
+
+.topright {
+    width: 35%;
+    align-content: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    overflow-y: scroll;
+}
+
+.list {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-right: 10px;
+}
+
+.li {
+    color: black;
+    font-size: 16px;
+    font-weight: 400;
+    cursor: pointer;
+}
+
+.hamburger {
+    display: none;
+    width: 30px;
+    height: 30px;
+    background-color: transparent;
+    margin-right: 10px;
+}
+
+.li:hover {
+    color: #1CC5EF;
+}
+
+
+@media (max-width:1024px) {
+
+    .main {
+        width: 90vw;
+        position: fixed;
+        top: 10px;
+        left: 5vw;
+    }
+
+    .topright {
+        width: 45%;
+    }
+
+    .topleft {
+    width: 20%;
+}
+
+    /* #top-right ul {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-right: 10px;
+} */
+}
+
+
+@media (max-width:770px) {
+    .main {
+        width: 90vw;
+        display: flex;
+        position: fixed;
+        top: 10px;
+        z-index: 1000;
+    }
+
+
+    .topright {
+        width: 50px;
+        overflow: hidden;
+    }
+
+
+    .list {
+        position: absolute;
+        left: 0;
+        top: 65px;
+        width: 60vw;
+        height: calc(100vh - 65px);
+        display: flex;
+        flex-direction: column;
+        background-color: white;
+        border-radius: 10px;
+        overflow-y: auto;
+        padding-bottom: 20px;
+    }
+
+    .li {
+        height: 30px;
+        width: 55vw;
+        margin: 5px auto 10px auto;
+        background-color: #E6E4E4;
+        border-radius: 10px;
+        padding: 10px;
+    }
+
+    .hamburger {
+        display: block;
+    }
+}
+
+@media (max-width:426px){
+    .li{
+        width:50vw
+    }
+}
+
+.topright::-webkit-scrollbar{
+    display: none;
+}

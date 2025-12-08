@@ -1,17 +1,19 @@
+import Styles from "./DoctorHome.module.css"
+
 function PatientCard({data}) {
     return (
-        <div>
-            <div>
+        <div className={Styles.patientCard}>
+            <div className={Styles.dataField}>
                 <p>Patient Name:</p>
                 <p>{data.PatientName}</p>
             </div>
 
-            <div>
+            <div className={Styles.dataField}>
                 <p>Appointment Date:</p>
                 <p>{data.AppointmentDate}</p>
             </div>
 
-            <div>
+            <div className={Styles.dataField}>
                 <p>Appointment Time:</p>
                 <p>{data.AppointmentTIme}</p>
             </div>

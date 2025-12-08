@@ -1,0 +1,111 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+
+
+.mainRight {
+    height: 100vh;
+    width: 50vw;
+    background: linear-gradient(rgba(0, 0, 0, 0.5),
+            /*for top*/
+            rgba(41, 190, 210, 0.5)
+            /*for bottom*/
+
+        ),
+        url("../../assets/photos/background.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+
+.title {
+    width: 100%;
+    display: flex;
+    margin: 20px 0 0 70px;
+    align-items: center;
+    background-color: transparent;
+}
+
+.logo {
+    width: 45px;
+    height: 45px;
+}
+
+.appName {
+    color: white;
+    font-weight: 700;
+    font-size: 30px;
+    margin-left: 10px;
+}
+
+.bottom {
+    margin-top: 30px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    overflow-y: scroll;
+}
+
+.info,
+#paragraph {
+    width: 90%;
+    text-align: center;
+}
+
+.bottom h1 {
+    color: white;
+}
+
+.bottom .though {
+    color: white;
+    font-size: 22px;
+    text-align: center;
+}
+
+.lower {
+    width: 200px;
+    height: 200px;
+    border-radius: 10px;
+}
+
+@media (max-width: 770px) {
+    .title {
+        width: 100%;
+        display: flex;
+        margin: 20px 0 0 70px;
+        align-items: center;
+        background-color: transparent;
+    }
+
+    .appName {
+        font-size: 25px;
+        margin-left: 10px;
+    }
+
+    .bottom h1 {
+        color: white;
+        font-size: 25px;
+    }
+
+    .bottom .though {
+        color: white;
+        font-size: 18px;
+        text-align: center;
+    }
+
+    .lower{
+        width: 150px;
+        height: 150px;
+    }
+}
+
+.bottom::-webkit-scrollbar {
+    display: none;
+}

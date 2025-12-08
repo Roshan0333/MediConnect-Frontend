@@ -1,5 +1,4 @@
-
-.mainDiv{
+.mainDiv {
     height: 100vh;
     width: 50vw;
     display: flex;
@@ -8,7 +7,7 @@
     background-color: #FFFFFF;
 }
 
-.heroSection{
+.heroSection {
     width: 75%;
     height: 90vh;
     display: flex;
@@ -20,26 +19,26 @@
     overflow-y: scroll;
 }
 
-.heroSection::-webkit-scrollbar{
+.heroSection::-webkit-scrollbar {
     display: none;
 }
 
-.h1{
+.h1 {
     color: black;
     font-size: 40px;
 }
 
-.p{
+.p {
     color: black;
     font-size: 15px;
 }
 
-.second{
+.second {
     /* font-weight: 200; */
     color: #8C8D8B;
 }
 
-.inputDiv{
+.inputDiv {
     height: 40px;
     border: 2px solid rgb(209, 205, 205);
     background-color: #FFFFFF;
@@ -51,26 +50,26 @@
     margin-top: 5px;
 }
 
-.passwordLabel{
+.passwordLabel {
     margin-top: 20px;
     display: flex;
     justify-content: space-between;
 }
 
-.forgetpassword{
+.forgetpassword {
     color: #FF3B00;
 }
 
-.inputField{
+.inputField {
     height: 20px;
     width: 90%;
     outline-color: transparent;
     border: transparent;
     margin-left: 5px;
-    
+
 }
 
-.submit{
+.submit {
     height: 40px;
     background-color: #FF3B00;
     color: white;
@@ -81,19 +80,19 @@
     border: transparent;
 }
 
-.para{
+.para {
     text-align: center;
     width: 100%;
 }
 
-.loginway{
+.loginway {
     display: flex;
     flex-direction: row;
     justify-content: center;
     gap: 50px;
 }
 
-.loginOption{
+.loginOption {
     display: flex;
     align-items: center;
     width: 100px;
@@ -102,7 +101,80 @@
     border-radius: 10px;
 }
 
-.optionName{
+.optionName {
     margin-left: 10px;
     font-size: 17px;
+}
+
+@media (max-width: 770px) {
+    .h1 {
+        color: black;
+        font-size: 30px;
+    }
+
+    .second {
+        font-size: 15px;
+        color: #8C8D8B;
+    }
+
+    .submit {
+        height: 30px;
+        background-color: #FF3B00;
+        color: white;
+        width: 50%;
+        margin: 20px auto 0 auto;
+        font-size: 15px;
+        border-radius: 5px;
+        border: transparent;
+        display: block;
+    }
+
+    .loginway {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        gap: 30px;
+    }
+
+    .loginOption {
+        display: flex;
+        align-items: center;
+        width: 100px;
+        border: 2px solid rgb(162, 153, 153);
+        padding: 5px 10px 5px 10px;
+        border-radius: 10px;
+    }
+
+    .optionName {
+        margin-left: 10px;
+        font-size: 15px;
+    }
+
+    .para {
+        text-align: center;
+        width: 100%;
+        font-size: 15px;
+    }
+
+}
+
+@media (max-width: 426px) {
+    .mainDiv {
+        height: 100vh;
+        width: 100vw;
+        align-items: center;
+        background-color: #FFFFFF;
+    }
+
+    .heroSection {
+        width: 85%;
+        height: 90vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        border: 2px solid rgb(162, 153, 153);
+        border-radius: 10px;
+        padding: 20px;
+        overflow-y: scroll;
+    }
 }

@@ -1,0 +1,160 @@
+.ReportMainDiv {
+    height: 95wh;
+    display: grid;
+    grid-template-columns: repeat(3, 310px);
+    grid-template-rows: repeat(5, 520px);
+    margin-left: 20px;
+    overflow: scroll;
+}
+
+.cardMainDiv {
+    width: 300px;
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    justify-items: center;
+    border-radius: 10px;
+    background-color: white;
+    padding: 10px;
+}
+
+.itemDiv {
+    width: 90%;
+    display: flex;
+    justify-content: space-around;
+    justify-items: center;
+}
+
+.itemLabel {
+    width: 50%;
+    font-size: 18px;
+    color: black;
+    font-weight: bold;
+}
+
+.itemValue {
+    width: 50%;
+    font-size: 18px;
+    color: black;
+    font-weight: normal;
+    overflow: hidden;
+}
+
+.downloadButton {
+    background-color: #FF3B00;
+    color: white;
+}
+
+.ReportMainDiv::-webkit-scrollbar {
+    display: none;
+}
+
+.notFoundDiv {
+    height: 100%;
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.notFound {
+    font-size: 20px;
+    color: black;
+}
+
+@media (max-width: 770px) {
+    .ReportMainDiv {
+        height: 95wh;
+        display: grid;
+        grid-template-columns: repeat(2, 310px);
+        grid-template-rows: repeat(5, 520px);
+        margin-left: 20px;
+        overflow: scroll;
+    }
+
+    .notFoundDiv {
+        height: 100%;
+        background-color: transparent;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .notFound {
+        font-size: 18px;
+        color: black;
+    }
+}
+
+@media (max-width : 425px) {
+    .ReportMainDiv {
+        height: 95wh;
+        display: grid;
+        grid-template-columns: repeat(1, 410px);
+        grid-template-rows: repeat(5, 520px);
+        margin-left: 20px;
+        overflow: scroll;
+    }
+
+    .cardMainDiv {
+        width: 95wh;
+        height: 95wh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        justify-items: center;
+        border-radius: 10px;
+        background-color: white;
+        padding: 10px;
+    }
+
+    .notFoundDiv {
+        height: 100%;
+        background-color: transparent;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .notFound {
+        font-size: 18px;
+        color: black;
+    }
+}
+
+@media (max-width : 375px) {
+    .ReportMainDiv {
+        height: 95wh;
+        display: grid;
+        grid-template-columns: repeat(1, 350px);
+        grid-template-rows: repeat(5, 520px);
+        margin-left: 20px;
+        overflow: scroll;
+    }
+
+    .cardMainDiv {
+        width: 95wh;
+        height: 250px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        justify-items: center;
+        border-radius: 10px;
+        background-color: white;
+        padding: 10px;
+    }
+
+    .notFoundDiv {
+        height: 100%;
+        background-color: transparent;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .notFound {
+        font-size: 18px;
+        color: black;
+    }
+}

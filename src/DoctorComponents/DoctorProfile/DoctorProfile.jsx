@@ -16,30 +16,30 @@ function DoctorProfile() {
     const [zipCode, setZipCode] = useState();
     const [city, setCity] = useState("");
     const [state, setState] = useState("");
-    const [address , setAddress] = useState("");
-    const [nearBy, setNearBy]= useState("");
+    const [address, setAddress] = useState("");
+    const [nearBy, setNearBy] = useState("");
 
     const fetch_DoctorDetail = async () => {
-        let fetchResult = await fetch("http://localhost:3000/mediconnect/doctor/profile/GetDoctorProfile",{
-            method:"GET",
-            headers:{
-                "Content-Type":"application/json"
+        let fetchResult = await fetch("http://localhost:3000/mediconnect/doctor/profile/GetDoctorProfile", {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json"
             },
-            credentials:"include"
+            credentials: "include"
         })
 
 
         let fetchResponse = await fetchResult.json();
 
-        let responseStatus =  fetchResponse.status;
+        let responseStatus = fetchResponse.status;
 
-        if(responseStatus === 401){
+        if (responseStatus === 401) {
             alert(responseStatus.msg)
         }
-        else if(responseStatus === 500){
+        else if (responseStatus === 500) {
             console.log(fetchResponse.error)
         }
-        else{
+        else {
             setProfilePhoto(fetchResponse.profilePhoto);
             setDoctorName(fetchResponse.DoctorName);
             setDoctorEmail(fetchResponse.DoctorEmail);
@@ -59,7 +59,7 @@ function DoctorProfile() {
 
     useEffect(() => {
         fetch_DoctorDetail();
-    },[])
+    }, [])
 
 
     return (
@@ -67,7 +67,9 @@ function DoctorProfile() {
             <form className={Styles.userprofile_maindiv}>
 
                 <div className={Styles.profileimage_div}>
-                    <img src={(profilePhoto == "")?Profile:null} className={Styles.profileimage} alt="Profile Image" />
+                    {(profilePhoto === "" || profilePhoto === null)
+                        ? <img src={Profile} className={Styles.profileimage} alt="Profile Image" />
+                        : <img src={`data:image/*;base64,${profilePhoto}`} className={Styles.profileimage} alt="Profile" />}
                     <FaCamera className={Styles.image_edit_icon} />
                 </div>
 
@@ -90,7 +92,7 @@ function DoctorProfile() {
 
                     <div className={Styles.value_div}>
                         <label className={Styles.label_field}>Age</label>
-                        <p className={Styles.value_field}>{doctorAge}</p> 
+                        <p className={Styles.value_field}>{doctorAge}</p>
                     </div>
 
                 </div>

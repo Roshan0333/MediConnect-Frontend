@@ -1,0 +1,134 @@
+.Appointment_MainDiv {
+    height: 88vh;
+    display: grid;
+    grid-template-columns: repeat(4, 300px);
+    grid-template-rows: repeat(5, 310px);
+    overflow-y: scroll;
+}
+
+
+.cardMain {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    width: 290px;
+    height: 300px;
+    align-items: center;
+    gap: 8px;
+    border-radius: 10px;
+}
+
+.ImageDiv {
+    width: 100px;
+    height: 100px;
+    margin-top: 10px;
+}
+
+.Image {
+    width: 100px;
+    height: 100px;
+}
+
+.inputDiv {
+    width: 90%;
+    display: flex;
+    justify-content: center;
+}
+
+.buttons {
+    width: 75%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.PayNow {
+    background-color: #FF3B00;
+    color: white;
+}
+
+.Payed {
+    background-color: green;
+    color: white;
+}
+
+.CancelButton {
+    background-color: red;
+    color: white;
+}
+
+.notFoundDiv {
+    height: 100%;
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.notFound {
+    font-size: 20px;
+    color: black;
+}
+
+@media (max-Width: 770px) {
+
+    .Appointment_MainDiv {
+        height: 88vh;
+        display: grid;
+        grid-template-columns: repeat(2, 46vw);
+        grid-template-rows: repeat(5, 310px);
+        overflow-y: scroll;
+    }
+
+    .cardMain {
+        display: flex;
+        flex-direction: column;
+        background-color: white;
+        width: 44vw;
+        height: 300px;
+        align-items: center;
+        gap: 8px;
+        border-radius: 10px;
+    }
+
+    .notFoundDiv {
+        height: 100%;
+        background-color: transparent;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+@media (max-Width: 430px) {
+
+    .Appointment_MainDiv {
+        height: 88vh;
+        display: grid;
+        grid-template-columns: repeat(1, 300px);
+        grid-template-rows: repeat(5, 310px);
+        overflow-y: scroll;
+    }
+
+    .cardMain {
+        display: flex;
+        flex-direction: column;
+        background-color: white;
+        width: 90vw;
+        height: 300px;
+        align-items: center;
+        gap: 8px;
+        border-radius: 10px;
+    }
+
+    .notFoundDiv {
+        height: 100%;
+        background-color: transparent;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+.Appointment_MainDiv::-webkit-scrollbar {
+    display: none;
+}

@@ -5,9 +5,16 @@ import Styles from "./appointmentPost.module.css"
 
 function DayAppointmentPost({ date, urlType }) {
 
-    let [checked, setChecked] = useState(false)
+    let [checked, setChecked] = useState(false);
 
-    let [appointmentSlots, setAppointmentStatus] = useState([
+    let [buttonType, setButtonType] = useState(urlType);
+
+    let [reload, setReload] = useState(false)
+
+
+    let [appointmentSlots, setAppointmentStatus] = useState([])
+
+    let regularAppointmentSlots = [
         { time: "10:00 AM", Status: false },
         { time: "10:30 AM", Status: false },
         { time: "11:00 AM", Status: false },
@@ -23,64 +30,157 @@ function DayAppointmentPost({ date, urlType }) {
         { time: "05:00 PM", Status: false },
         { time: "05:30 PM", Status: false },
         { time: "06:00 PM", Status: false },
-    ])
+    ]
 
 
     const postWeeklyAppointment = async () => {
-        const fetchResult = await fetch("http://localhost:3000/mediconnect/doctor/available/AddAvailable", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                 Date:date,
-                AvailableArray: appointmentSlots
-            }),
-            credentials: "include"
-        })
+        try {
+            const fetchResult = await fetch("http://localhost:3000/mediconnect/doctor/available/AddAvailable", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    Date: date,
+                    AvailableArray: appointmentSlots
+                }),
+                credentials: "include"
+            })
 
-        const fetchResponse = await fetchResult.json();
+            const fetchResponse = await fetchResult.json();
 
-        const responseStatus = fetchResponse.status;
+            const responseStatus = fetchResponse.status;
 
-        if (responseStatus === 500) {
-            console.log(`Error: ${fetchResponse.error}`);
+            if (responseStatus === 500) {
+                console.log(`Error: ${fetchResponse.error}`);
+            }
+            else if (responseStatus === 404) {
+                alert(resultResponse.msg)
+            }
+            else {
+                alert(`Message: ${fetchResponse.msg}`);
+                setReload(prev => !prev);;
+            }
         }
-        else {
-            alert(`Message: ${fetchResponse.msg}`);
+        catch (err) {
+            console.log(err)
         }
     }
 
     const editWeeklyAppointment = async () => {
 
-        console.log(appointmentSlots);
+        try {
+            const fetchResult = await fetch("http://localhost:3000/mediconnect/doctor/available/EditTime", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    Date: date,
+                    AvailableTimeArray: appointmentSlots
+                }),
+                credentials: "include"
+            });
 
-        const fetchResult = await fetch("http://localhost:3000/mediconnect/doctor/available/EditTime", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                Date: date,
-                AvailableTimeArray: appointmentSlots
-            }),
-            credentials: "include"
-        });
+            const fetchResponse = await fetchResult.json();
+            const responseStatus = fetchResponse.status;
 
-        const fetchResponse = await fetchResult.json();
-        const responseStatus = fetchResponse.status;
-
-        if (responseStatus === 500) {
-            console.log(`Error: ${fetchResponse.error}`)
+            if (responseStatus === 500) {
+                console.log(`Error: ${fetchResponse.error}`)
+            }
+            else if (responseStatus === 404) {
+                alert(resultResponse.msg)
+            }
+            else {
+                alert(`Message: ${fetchResponse.msg}`)
+                setReload(prev => !prev);
+            }
         }
-        else {
-            alert(`Message: ${fetchResponse.msg}`)
+        catch (err) {
+            console.log(err)
         }
     }
 
+    const deleteDateAppointment = async () => {
+        try {
+            let fetchResult = await fetch("http://localhost:3000/mediconnect/doctor/available/DeleteDate", {
+                method: "PUT",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    Date: date
+                }),
+                credentials: "include"
+            })
+
+            let resultResponse = await fetchResult.json()
+
+            let responseStatus = resultResponse.status;
+
+            if (responseStatus === 500) {
+                console.log(`Error: ${resultResponse.error}`)
+            }
+            else if (responseStatus === 404) {
+                alert(resultResponse.msg)
+            }
+            else {
+                alert(resultResponse.msg)
+                setReload(prev => !prev);
+                setAppointmentStatus[regularAppointmentSlots]
+            }
+
+        }
+        catch (err) {
+            console.log(err)
+        }
+    }
+
+    const getWeeklyAppointment = async () => {
+        try {
+            let fetchResult = await fetch(`http://localhost:3000/mediconnect/doctor/available/GetAvailable?availableDate=${date}`, {
+                method: "GET",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                credentials: "include"
+            })
+
+            let resultResponse = await fetchResult.json()
+
+            let responseStatus = resultResponse.status;
+
+            if (responseStatus === 500) {
+                console.log(`Error: ${resultResponse.error}`)
+            }
+            else if (responseStatus === 404) {
+                setButtonType("Post")
+            }
+            else {
+                const backendStatus = resultResponse.AvailableDetail.DoctorAvailable_Array[0].Available;
+                setButtonType("Edit");
+                setAppointmentStatus(prev =>
+                    prev.map((slot, index) => ({
+                        ...slot,
+                        Status: backendStatus[index]
+                    }))
+                );
+            }
+        }
+        catch (err) {
+            console.log(err)
+        }
+    }
 
     let deleteSlot = (index) => {
-        appointmentSlots[index].Status = !appointmentSlots[index].Status;
+        setAppointmentStatus(prev => {
+            const updated = [...prev];
+            updated[index] = {
+                ...updated[index],
+                Status: !updated[index].Status
+            };
+            return updated;
+        });
     }
 
 
@@ -88,16 +188,20 @@ function DayAppointmentPost({ date, urlType }) {
         setChecked(checked = !checked);
     }
 
-
+    useEffect(() => {
+        setAppointmentStatus(regularAppointmentSlots);
+        getWeeklyAppointment()
+    }, [])
 
     useEffect(() => {
-
-    }, [appointmentSlots])
+        setAppointmentStatus(regularAppointmentSlots);
+        getWeeklyAppointment()
+    }, [reload])
 
     return (
         <div className={Styles.dayAppointmentMainDiv}>
             <div className={Styles.dayAppointment_TopPart}>
-                <div className={Styles.dayAppointment_TopSubPart}>
+                <div className={`${Styles.dayAppointment_TopSubPart} ${Styles.dateDiv}`}>
                     <p>Date:</p>
                     <p>{date}</p>
                 </div>
@@ -105,7 +209,34 @@ function DayAppointmentPost({ date, urlType }) {
                     <Switch onClick={() => {
                         switchChange();
                     }} />
-                    {(urlType === "Post") ? <button className={Styles.postButton} onClick={() => postWeeklyAppointment()}>Post</button> : <button className={Styles.postButton} onClick={() => editWeeklyAppointment() }>Edit</button>}
+                    {(buttonType === "Post")
+                        ? <button className={Styles.postButton}
+                            onClick={() => {
+                                if (checked) {
+                                    postWeeklyAppointment()
+                                }
+                                else {
+                                    alert("Please on the Switch")
+                                }
+                            }}>Post</button>
+                        : <div className={Styles.multipleButtonDiv}>
+                            <button className={Styles.editButton} onClick={() => {
+                                if (checked) {
+                                    editWeeklyAppointment()
+                                }
+                                else {
+                                    alert("Please on the Switch")
+                                }
+                            }}>Edit</button>
+                            <button className={Styles.deleteButton} onClick={() => {
+                                if (checked) {
+                                    deleteDateAppointment()
+                                }
+                                else {
+                                    alert("Please on the Switch")
+                                }
+                            }}>Delete</button>
+                        </div>}
                 </div>
             </div>
 
