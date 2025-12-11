@@ -3,9 +3,13 @@ import hamburger from '../../assets/photos/burger-bar.png'
 import Styles from "./navbar.module.css"
 import { useMediaQuery } from 'react-responsive';
 import { useState, useEffect } from 'react';
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 
 function Navbar() {
+
+  let navigate = useNavigate();
+
+  let [signoutFlag, setSignoutFlag] = useState(false)
 
   //Use for make make responsive.
   //we use iSmallScreen variable, we store boolean value false. When screen size small then or equal to 770px, then value toogle into true.
@@ -57,9 +61,16 @@ function Navbar() {
     }
     else {
       alert(fetchResponse.msg)
-      localStorage.clear()
+      localStorage.clear();
+      setSignoutFlag(prev => !prev)
+      navigate("/");
     }
   }
+
+
+  useEffect(() => {
+
+  }, [signoutFlag])
 
 
   return (

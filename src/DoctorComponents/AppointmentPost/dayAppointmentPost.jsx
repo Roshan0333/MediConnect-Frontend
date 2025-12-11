@@ -11,6 +11,7 @@ function DayAppointmentPost({ date, urlType }) {
 
     let [reload, setReload] = useState(false)
 
+    let [deleteButtonFlag, setDeleteButtonFlag] = useState(true);
 
     let [appointmentSlots, setAppointmentStatus] = useState([])
 
@@ -162,9 +163,16 @@ function DayAppointmentPost({ date, urlType }) {
                 setAppointmentStatus(prev =>
                     prev.map((slot, index) => ({
                         ...slot,
-                        Status: backendStatus[index]
+                        Status: backendStatus[index].Status
                     }))
                 );
+
+                backendStatus.filter(item => {
+                    if (item.Status !== false) {
+                        setDeleteButtonFlag(false)
+                    }
+                })
+
             }
         }
         catch (err) {
@@ -228,14 +236,14 @@ function DayAppointmentPost({ date, urlType }) {
                                     alert("Please on the Switch")
                                 }
                             }}>Edit</button>
-                            <button className={Styles.deleteButton} onClick={() => {
+                            {deleteButtonFlag && <button className={Styles.deleteButton} onClick={() => {
                                 if (checked) {
                                     deleteDateAppointment()
                                 }
                                 else {
                                     alert("Please on the Switch")
                                 }
-                            }}>Delete</button>
+                            }}>Delete</button>}
                         </div>}
                 </div>
             </div>

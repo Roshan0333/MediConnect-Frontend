@@ -7,9 +7,9 @@ function TimeCard({data, slotIndex, deleteFunction, switchValue}) {
     let [editValue, setEditedValue] = useState(true);
 
     return (
-        <div className={(switchValue)?Styles.time: Styles.unCheckTime}>
+        <div className={(switchValue && !data.Status)?Styles.time: Styles.unCheckTime}>
             <p className={Styles.timeValue}>{data.time}</p>
-            {(editValue)?<FaTimes onClick={() => {
+            {(!data.Status)?(editValue)?<FaTimes onClick={() => {
                 if(switchValue){
                     deleteFunction(slotIndex);
                     setEditedValue(editValue = !editValue)
@@ -19,7 +19,7 @@ function TimeCard({data, slotIndex, deleteFunction, switchValue}) {
                     deleteFunction(slotIndex);
                     setEditedValue(editValue =!editValue)
                 }
-            }}/>}
+            }}/>:null}
         </div>
     )
 }

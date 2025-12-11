@@ -1,7 +1,7 @@
 import profile from "../../assets/photos/profile.png"
 import { FaHome, FaUser, FaCalendar, FaUserMd, FaHistory, FaCog, FaUserPlus, FaFileAlt, FaSignOutAlt } from 'react-icons/fa'
 import "./sideBar.css"
-import { Link } from "react-router-dom";
+import { Link, useNavigate  } from "react-router-dom";
 import { useState, useEffect } from "react";
 
 function Sidebar() {
@@ -10,7 +10,9 @@ function Sidebar() {
     const [userName, setUserName] = useState("");
     const [profilePhoto, setProfilePhoto] = useState("");
 
-    const [signoutFlag, setSignoutFlag] = useState(false)
+    const [signoutFlag, setSignoutFlag] = useState(false);
+
+    let navigate = useNavigate()
 
     const SignOut = async () => {
         let fetchResult = await fetch("http://localhost:3000/mediconnect/signout", {
@@ -31,7 +33,9 @@ function Sidebar() {
         else {
             alert(fetchResponse.msg)
             setSignoutFlag(prev => !prev)
-            localStorage.clear()
+            localStorage.clear();
+
+            navigate("/");
         }
     }
 

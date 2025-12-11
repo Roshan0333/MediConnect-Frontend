@@ -31,7 +31,8 @@ function AppointmentHistoryComponent() {
                     <h1 className={styles.notFound}>Not Appointment History Found</h1>
                 </div>)
             } else {
-                setAppointmentList(response.Data)
+                console.log(response.appointmentHistoryData)
+                setAppointmentList(response.appointmentHistoryData)
             }
         }
     }
@@ -43,7 +44,7 @@ function AppointmentHistoryComponent() {
 
     return (
         <div className={styles.HistoryMainComponent}>
-            {Object.values(AppointmentList).map((appointment, index) => {
+            {AppointmentList.map((appointment, index) => {
                 return <HistoryCard info={appointment} key={index} />
             }).reverse()}
         </div>

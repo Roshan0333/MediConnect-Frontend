@@ -5,7 +5,7 @@ import Styles from '../../css/profile.module.css';
 
 function DoctorProfile() {
 
-    const [profilePhoto, setProfilePhoto] = useState("")
+    const [profilePhoto, setProfilePhoto] = useState(null)
     const [doctorName, setDoctorName] = useState("");
     const [doctorEmail, setDoctorEmail] = useState("");
     const [doctorPhone, setDoctorPhone] = useState();
@@ -31,6 +31,8 @@ function DoctorProfile() {
 
         let fetchResponse = await fetchResult.json();
 
+        let response = fetchResponse.doctorDetail;
+
         let responseStatus = fetchResponse.status;
 
         if (responseStatus === 401) {
@@ -40,19 +42,20 @@ function DoctorProfile() {
             console.log(fetchResponse.error)
         }
         else {
-            setProfilePhoto(fetchResponse.profilePhoto);
-            setDoctorName(fetchResponse.DoctorName);
-            setDoctorEmail(fetchResponse.DoctorEmail);
-            setDoctorPhone(fetchResponse.DoctorPhone);
-            setDoctorAge(fetchResponse.DoctorAge);
-            setDoctorSpecialization(fetchResponse.DoctorSpecialization);
-            setExperience(fetchResponse.DoctorExperience);
-            setCountry(fetchResponse.Address.Country);
-            setZipCode(fetchResponse.Address.PinCode);
-            setCity(fetchResponse.Address.City);
-            setState(fetchResponse.Address.State);
-            setAddress(fetchResponse.Address.Street);
-            setNearBy(fetchResponse.Address.NearBy);
+
+            setProfilePhoto(response.DoctorPhoto);
+            setDoctorName(response.DoctorName);
+            setDoctorEmail(response.DoctorEmail);
+            setDoctorPhone(response.DoctorPhone);
+            setDoctorAge(response.DoctorAge);
+            setDoctorSpecialization(response.DoctorSpecialization);
+            setExperience(response.DoctorExperience);
+            setCountry(response.Address.Country);
+            setZipCode(response.Address.PinCode);
+            setCity(response.Address.City);
+            setState(response.Address.State);
+            setAddress(response.Address.Street);
+            setNearBy(response.Address.NearBy);
         }
 
     }

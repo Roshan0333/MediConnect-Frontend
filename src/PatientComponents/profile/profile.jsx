@@ -29,16 +29,6 @@ function UserProfile() {
     };
 
 
-    const onPhotoSelect = async (e) => {
-        const file = e.target.files[0];
-        if(!file) return;
-
-        const formData = new FormData();
-        formData.append("profilePhoto", file)
-
-        return formData;
-    }
-
 
     const fetch_CityAndState = async () => {
         try {
@@ -93,11 +83,12 @@ function UserProfile() {
             setUserName(userDetail.UserName);
             setEmail(userDetail.UserEmail);
             setPhone(userDetail.Phone);
+            setAge(userDetail.UserAge)
             setZipCode(userDetail.Address.PinCode);
             setCity(userDetail.Address.City);
             setState(userDetail.Address.State);
             setAddress(userDetail.Address.StreetName);
-            setNearBy(userDetail.NearBy)
+            setNearBy(userDetail.Address.NearBy)
         }
     }
 

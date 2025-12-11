@@ -44,7 +44,7 @@ let ReportCardForPatient = ({data, downloadReport}) => {
 
             <div className={Styles.itemDiv}>
                 <p className={Styles.itemLabel}>Uploaded By:</p>
-                <p className={Styles.itemValue}>{data.UploadedByName}</p>
+                <p className={Styles.itemValue}>{data.UploadedBy}</p>
             </div>
 
             <button onClick={() => downloadReport(data.Report, data.FileName)} className={Styles.downloadButton}>Report</button>
@@ -73,7 +73,7 @@ let ReportCardforDoctor = ({data, downloadReport}) => {
 
             <div className={Styles.itemDiv}>
                 <p className={Styles.itemLabel}>Uploaded By:</p>
-                <p className={Styles.itemValue}>{data.UploadedByName}</p>
+                <p className={Styles.itemValue}>{data.UploadedBy}</p>
             </div>
 
             <button onClick={() => downloadReport(data.Report, data.FileName)} className={Styles.downloadButton}>Report</button>

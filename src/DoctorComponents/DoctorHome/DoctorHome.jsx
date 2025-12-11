@@ -62,7 +62,7 @@ function DoctorHome() {
 
     if (todayAppointmentList.length === 0) {
         return <div className={Styles.notFoundDiv}>
-            <h1 className={Styles.notFound}>{fetchResponse.msg}</h1>
+            <h1 className={Styles.notFound}>No Appointment Found</h1>
         </div>
     }
 

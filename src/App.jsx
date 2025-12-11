@@ -18,6 +18,7 @@ import UserDetail from './PatientComponents/userDetail.jsx/userDetail';
 import DoctorHome from './DoctorComponents/DoctorHome/DoctorHome';
 import DoctorProfile from './DoctorComponents/DoctorProfile/DoctorProfile';
 import AppoiontmentPost from './DoctorComponents/AppointmentPost/appointmentPost';
+import DoctorUpcomingAppointment from './DoctorComponents/DoctorUpcomingAppointment/DoctorUpcomingAppointment';
 
 
 function App() {
@@ -57,11 +58,11 @@ function Layout() {
             <Route path='/AppointmentBookingConformation' element={<AppointmentBookingConformation />} />
             <Route path="/UserDetail" element={<UserDetail />} />
             <Route path="/Profile" element={(userType === "Doctor") ? <DoctorProfile /> : <UserProfile />} />
-            <Route path="/Appointment" element={<UpcomingAppointment/>} />
+            <Route path="/Appointment" element={(userType === "Doctor")?<DoctorUpcomingAppointment/>:<UpcomingAppointment/>} />
             <Route path='/Report' element={<MedicalReport />} />
             <Route path="/Doctor" element={<PreviousDoctors />} />
             <Route path="/AppointmentPost" element={<AppoiontmentPost />} />
-            <Route path='/History' element={<AppointmentHistoryComponent />} />
+            <Route path='/History' element={<AppointmentHistoryComponent/>} />
             <Route path='/Setting' />
           </Routes>
         </div>
