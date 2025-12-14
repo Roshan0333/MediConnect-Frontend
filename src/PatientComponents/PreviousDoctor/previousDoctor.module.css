@@ -1,7 +1,10 @@
 .cardMainDiv {
+    height: 90vh;
+    width: 88vw;
     display: grid;
     grid-template-columns: repeat(3, 310px);
     grid-template-rows: repeat(5, 320px);
+    overflow-y: scroll;
 }
 
 .notFoundDiv {
@@ -17,11 +20,14 @@
     color: black;
 }
 
-@media (max-width:770) {
+@media (max-width:770px) {
     .cardMainDiv {
+        height: 95vh;
+        width: 95vw;
         display: grid;
         grid-template-columns: repeat(2, 310px);
         grid-template-rows: repeat(5, 320px);
+        overflow-y: scroll;
     }
 
     .notFoundDiv {
@@ -38,11 +44,14 @@
     }
 }
 
-@media (max-width:425) {
+@media (max-width:426px) {
     .cardMainDiv {
+        height: 95vh;
+        width: 95vw;
         display: grid;
-        grid-template-columns: repeat(1, 410px);
-        grid-template-rows: repeat(5, 320px);
+        grid-template-columns: repeat(1, 400px);
+        grid-template-rows: repeat(5, 260px);
+        overflow: scroll;
     }
 
     .notFoundDiv {

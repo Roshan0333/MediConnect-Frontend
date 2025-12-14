@@ -3,9 +3,11 @@ import { Link } from 'react-router-dom';
 import './card.css'
 import { useEffect, useState } from 'react';
 
-function Card({ info, date }) {
+function Card({ info, date}) {
 
     const [doctorPhoto, setDoctorPhoto] = useState("");
+
+   
 
     useEffect(() => {
         ; (
@@ -17,6 +19,8 @@ function Card({ info, date }) {
                     },
                     credentials: "include"
                 });
+
+                 console.log(date)
 
                 let resultResponse = await fetchResult.json();
                 let responseStatus = resultResponse.status;
